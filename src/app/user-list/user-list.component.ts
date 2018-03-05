@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { MeetupsService } from '../meetups.service';
 import { Meetup } from '../meetup.model';
-// import { MEETUP } from '../mock-meetup';
 
 @Component({
   selector: 'app-user-list',

@@ -1,19 +1,19 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" routerLink="">CodeMeetup</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a routerLink="sign-in-up">Sign In/Up</a></li>
-      <li><a routerLink="profile">User Profile</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="sign-in-up">Sign In/Up</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="profile">User Profile</a></li>
 
-        <li><a routerLink="create-meetup">Create Meetup</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="create-meetup">Create Meetup</a></li>
 
     </ul>
   </div>
 </nav>
 
 <div class="container">
-  <h1>{{title}}</h1>
+  <!-- <h1>{{title}}</h1> -->
   <router-outlet></router-outlet>
 </div>
