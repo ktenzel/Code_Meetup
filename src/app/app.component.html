@@ -1,19 +1,29 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" routerLink="">CodeMeetup</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
       <li><a routerLink="sign-in-up">Sign In/Up</a></li>
+<<<<<<< HEAD
       <li><a routerLink="user-profile">User Profile</a></li>
+=======
+      <li><a routerLink="profile">User Profile</a></li>
+      <li><a routerLink="create-meetup">Create Meetup</a></li>
+=======
+      <li class="nav-item"><a class="nav-link" routerLink="sign-in-up">Sign In/Up</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="profile">User Profile</a></li>
+>>>>>>> e501e7a168a8fa327eaf084c319388ca27927cdb
 
-        <li><a routerLink="create-meetup">Create Meetup</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="create-meetup">Create Meetup</a></li>
 
+>>>>>>> 5dfeeb0e116a1fcb48236a6ba0a71d3a0ad4a809
     </ul>
   </div>
 </nav>
 
 <div class="container">
-  <h1>{{title}}</h1>
+  <!-- <h1>{{title}}</h1> -->
   <router-outlet></router-outlet>
 </div>
