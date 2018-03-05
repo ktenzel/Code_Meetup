@@ -1,1 +1,9 @@
 
+<div class="card" *ngFor="let meetup of meetups">
+  <div class="card-body">
+    {{ meetup.language }}
+    <div class="card-body" *ngFor="let user of meetup.users">
+      {{ user.name }}
+    </div>
+  </div>
+</div>
