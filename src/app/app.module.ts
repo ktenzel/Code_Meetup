@@ -4,16 +4,18 @@ import { NgModule } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { HomeComponent } from './home/home.component';
+import { routing } from './app.routing';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+    routing,
     ModalModule.forRoot()
   ],
   providers: [],
