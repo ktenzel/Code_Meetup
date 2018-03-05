@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Meetup } from '../meetup.model';
 import { User } from '../user.model';
+import { MEETUP } from '../mock-meetup';
 
 @Component({
   selector: 'app-new-meetup',
@@ -8,11 +9,11 @@ import { User } from '../user.model';
   styleUrls: ['./new-meetup.component.css']
 })
 export class NewMeetupComponent implements OnInit {
-  @Output() newMeetupSender = new EventEmitter();
+  meetup: Meetup[] = [];
 
-  submitForm(language: string, project: string[], reviewMaterial: string[], users: User[]) {
+  submitForm(language: string, project: string, reviewMaterial: string, users: string) {
     var newMeetupToAdd: Meetup = new Meetup( language, project, reviewMaterial, users);
-    this.newMeetupSender.emit(newMeetupToAdd);
+    this.meetup.push(newMeetupToAdd);
     alert("Meetup Added!")
   }
 
