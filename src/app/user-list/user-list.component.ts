@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { MeetupsService } from '../meetups.service';
 import { Meetup } from '../meetup.model';
+import { NewMeetupComponent } from '../new-meetup/new-meetup.component';
 
 @Component({
   selector: 'app-user-list',
