@@ -16,4 +16,8 @@ export class MeetupsService {
   getMeetups() {
     return this.meetups;
   }
+
+  addMeetup(newMeetup: Meetup) {
+    this.meetups.push(newMeetup)
+  }
 }
