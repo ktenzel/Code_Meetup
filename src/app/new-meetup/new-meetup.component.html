@@ -1,0 +1,17 @@
+<div class = "card">
+  <h1>New Meetup</h1>
+  <div>
+    <label>Enter Desired Language</label>
+    <input #newLanguage>
+  </div>
+  <br>
+  <div>
+    <label>Enter Project Name</label>
+    <input #newProject>
+  </div>
+  <br>
+  <div>
+    <label>Enter Project Material</label>
+    <input #newMaterial>
+    <button (click)="submitForm(newLanguage.value, newProject.value, newMaterial.value); newProject.value='';">Add</button>
+  </div>

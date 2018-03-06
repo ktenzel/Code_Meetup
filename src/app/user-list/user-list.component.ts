@@ -17,5 +17,4 @@ export class UserListComponent implements OnInit {
   ngOnInit() {
     this.meetups = this.meetupsService.getMeetups();
   }
-
 }

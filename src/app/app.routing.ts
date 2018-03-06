@@ -2,14 +2,24 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
-
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NewMeetupComponent } from './new-meetup/new-meetup.component';
 const appRoutes: Routes = [
   {
-    path: '',
-    component: HomeComponent
-  }, {
+  path: '',
+  component: HomeComponent
+  },
+  {
+  path: 'user-profile',
+  component: UserProfileComponent
+  },
+  {
     path: 'user-list',
     component: UserListComponent
+  },
+  {
+    path: 'new-meetup',
+    component: NewMeetupComponent
   }
 
 ];
