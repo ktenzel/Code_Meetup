@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'app-sign-in-out',
@@ -13,8 +15,8 @@ export class SignInOutComponent implements OnInit {
   private isLoggedIn: Boolean;
   private userName: String;
   private uid: string;
-
-  constructor(public authService: AuthenticationService) {
+  modalRef: BsModalRef;
+  constructor(public authService: AuthenticationService, private modalService: BsModalService) {
     this.authService.user.subscribe(user =>  {
       if (user == null) {
         this.isLoggedIn = false;
@@ -26,15 +28,21 @@ export class SignInOutComponent implements OnInit {
       }
     });
   }
-  //
-  // login() {
-  //   this.authService.login();
-  // }
+
+  login() {
+    this.authService.login();
+  }
 
   logout() {
     this.authService.logout();
   }
   ngOnInit() {
   }
-
+  openModal(template: TemplateRef<any>) {
+      this.modalRef = this.modalService.show(template);
+    }
+    closeFirstModal() {
+    this.modalRef.hide();
+    this.modalRef = null;
+  }
 }
