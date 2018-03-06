@@ -1,12 +1,14 @@
 <p align="center"><img width="60%" src="src/assets/images/codeDay_logo.png"></p>
 
-<p align="center">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
 [![Project Version](https://img.shields.io/badge/Ver-0.1.0-blue.svg?style=for-the-badge)](https://github.com/ktenzel/Code_Meetup.git)
 &nbsp;&nbsp;&nbsp;&nbsp;
 [![GitHub issues](https://img.shields.io/github/issues/ktenzel/Code_Meetup.svg?style=for-the-badge)](https://github.com/ktenzel/Code_Meetup/issues)
 &nbsp;&nbsp;&nbsp;&nbsp;
 [![GitHub license](https://img.shields.io/github/license/ktenzel/Code_Meetup.svg?style=for-the-badge)](https://github.com/ktenzel/Code_Meetup/blob/master/LICENSE)
-</p>
+
 
 ## Project Overview
 <!-- Basic Overview goes here -->
