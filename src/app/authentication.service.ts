@@ -1,3 +1,4 @@
+import { Router } from "@angular/router";
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
@@ -23,6 +24,10 @@ export class AuthenticationService {
     });
   }
 
+	createAccount(email, password) {
+		const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+		return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+	}
   // this.authService.login();
   // this.currentUser = new User(this.userName, null, null, this.uid);
   // this.userService.createUser(this.currentUser);
