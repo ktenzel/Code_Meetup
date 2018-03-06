@@ -4,19 +4,18 @@
     <label>Enter Desired Language</label>
     <input #newLanguage>
   </div>
+
   <br>
-  <div>
-    <label>Enter Project Name</label>
-    <input #newProject>
-  </div>
-  <br>
+
   <div>
     <label>Enter User Name</label>
     <input #newUser>
   </div>
+
   <br>
+
   <div>
-    <label>Enter Project Material</label>
-    <input #newMaterial>
-    <button (click)="submitForm(newLanguage.value, newProject.value, newMaterial.value, newUser.value); newProject.value='';">Add</button>
+    <label>Enter Lesson Material</label>
+    <input #newLesson>
+    <button (click)="submitForm(newLanguage.value, newLesson.value, newUser.value); newLesson.value=''; newLanguage.value=''; newUser.value=''">Add</button>
   </div>

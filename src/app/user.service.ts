@@ -11,12 +11,5 @@ export class UserService {
     return USERS;
   }
 
-  getUserById(userId: number){
-    for (var i = 0; i <= USERS.length -1; i++) {
-      if (USERS[i].id === userId) {
-        return USERS[i];
-      }
-    }
-  }
 
 }
