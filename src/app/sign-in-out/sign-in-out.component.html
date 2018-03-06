@@ -1,0 +1,7 @@
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link">{{userName}}</a>
+        <a class="nav-link" (click)="logout()">Log out</a>
+      </li>
+      <li class="nav-item" *ngIf ="!isLoggedIn">
+        <a class="nav-link" (click)="login()">Sign Up/Log In</a>
+      </li>
