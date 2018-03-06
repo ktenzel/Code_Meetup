@@ -29,9 +29,9 @@ export class SignInOutComponent implements OnInit {
     });
   }
 
-  login() {
-    this.authService.login();
-  }
+  // login() {
+  //   this.authService.login();
+  // }
 
   logout() {
     this.authService.logout();
