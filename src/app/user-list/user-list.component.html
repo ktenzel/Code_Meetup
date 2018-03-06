@@ -3,11 +3,11 @@
   <div class="card-body">
     {{ meetup.language }}
     <br>
-    {{ meetup.lesson }}
+    {{ meetup.skillLevel }}
     <br>
-    {{ meetup.users }}
+    {{ meetup.startedAt | date:"MM/dd @ hh:mm a" }}
     <br>
-
+    {{ meetup.location }}
   </div>
     <!-- <div class="card-body" *ngFor="let user of meetups.users">
       {{ user.name }}

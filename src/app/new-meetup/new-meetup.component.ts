@@ -12,8 +12,8 @@ import { MeetupsService } from '../meetups.service';
 })
 export class NewMeetupComponent implements OnInit {
 
-  submitForm(language: string, lesson: string, users: string) {
-    var newMeetup: Meetup = new Meetup(language, lesson, users);
+  submitForm(language: string, skillLevel: string, location: string) {
+    var newMeetup: Meetup = new Meetup(language, skillLevel, location);
     this.meetupsService.addMeetup(newMeetup);
     alert("Meetup Added!")
   }
