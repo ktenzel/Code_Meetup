@@ -1,3 +1,8 @@
 export class User {
-  constructor (public name: string, public skill: string, public language: string, public key: string, public id: number) {}
+  constructor (
+    public name: string,
+    public skill: string,
+    public language: string,
+    public uid: string, 
+    ) { }
 }
