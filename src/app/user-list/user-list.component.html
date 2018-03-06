@@ -1,12 +1,15 @@
 
-<div class="card" *ngFor="let meetup of meetups">
+<div class="card" *ngFor="let meetup of meetups | async">
   <div class="card-body">
     {{ meetup.language }}
-    <div class="card-body" *ngFor="let material of meetup.reviewMaterial">
-      {{ material }}
-    </div>
-    <div class="card-body" *ngFor="let user of meetup.users">
-      {{ user.name }}
-    </div>
+    <br>
+    {{ meetup.reviewMaterial }}
+    <br>
+    {{ meetup.project }}
+    <br>
+
   </div>
-</div>
+    <!-- <div class="card-body" *ngFor="let user of meetups.users">
+      {{ user.name }}
+    </div> -->
+  </div>

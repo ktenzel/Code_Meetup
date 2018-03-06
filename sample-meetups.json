@@ -1,0 +1,12 @@
+{ "meetups": [{
+  "project": "Javascript Week 4 Project",
+  "language": "Javascript",
+  "reviewMaterial": "Javascript Week 4 Material",
+  "users": "Abdul, Anduin, Kyle, Ross"
+}, {
+  "project": "Javascript Team Week",
+  "language": "Javascript",
+  "reviewMaterial": "Javascript Week 1-4 Material",
+  "users": "Abdul, Anduin, Kyle, Ross"
+  }]
+}
