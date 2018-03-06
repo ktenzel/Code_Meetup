@@ -1,0 +1,17 @@
+{
+  "name": "code-meetup",
+  "description": "",
+  "main": "karma.conf.js",
+  "authors": [
+    "Anduin Mooney and Kyle Tenzeldam <anduin+kyle@>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ktenzel/Code_Meetup",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
