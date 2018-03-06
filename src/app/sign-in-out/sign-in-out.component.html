@@ -1,0 +1,50 @@
+      <li class="nav nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link">{{userName}}</a>
+        <a class="nav-link" (click)="logout()">Log out</a>
+      </li>
+      <li class="nav-item" *ngIf ="!isLoggedIn">
+        <a class="nav-link" (click)="openModal(template)">Sign Up/Log In</a>
+      </li>
+
+      <ng-template #template>
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">Create Account</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class = "signUp">
+            <form class="newUser" action="index.html" method="post">
+              <label for="name">Name</label>
+              <input type="text" name="name" placeholder="Name">
+              <br>
+              <label for="email">Email</label>
+              <input type="text" name="email" placeholder="Email">
+              <br>
+              <label for="password">Password</label>
+              <input type="password">
+              <br>
+              <label for="link">Github link or Website</label>
+              <input type="text" name="link" placeholder="Github link or Website">
+              <br>
+              <label for="language">Language</label>
+              <select class="language" name="language">
+                <option value="java">Java</option>
+                <option value="javascript">Javascript</option>
+                <option value="ruby">Ruby</option>
+                <option value="python">Python</option>
+                <option value="c">C#</option>
+                <option value="react">React</option>
+                <option value="design">Design</option>
+              </select>
+            </form>
+          </div>
+          <button *ngIf="modalRef" type="button" class="btn btn-danger center" (click)="closeFirstModal()">Submit</button>
+          <br>
+          <button class="btn btn-success center">Sign in</button>
+          <br>
+          <button class="btn btn-primary center" (click)="login()">Sign in with Google</button>
+
+        </div>
+      </ng-template>

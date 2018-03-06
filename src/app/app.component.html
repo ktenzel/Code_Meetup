@@ -3,18 +3,12 @@
     <div class="navbar-header">
       <a class="navbar-brand" routerLink="">CodeMeetup</a>
     </div>
+
     <ul class="nav navbar-nav navbar-right">
-      <li class="nav-item"><a class="nav-link" routerLink="sign-in-up">Sign In/Up</a></li>
+      <app-sign-in-out></app-sign-in-out>
       <li class="nav-item"><a class="nav-link" routerLink="user-profile">User Profile</a></li>
       <li class="nav-item"><a class="nav-link" routerLink="new-meetup">Create Meetup</a></li>
       <li class="nav-item"><a class="nav-link" routerLink="user-list">Meetup List</a></li>
-      <li class="nav-item" *ngIf="isLoggedIn">
-        <a class="nav-link">{{userName}}</a>
-        <a class="nav-link" (click)="logout()">Log out</a>
-      </li>
-      <li class="nav-item" *ngIf ="!isLoggedIn">
-        <a class="nav-link" (click)="login()">Log in</a>
-      </li>
     </ul>
   </div>
 </nav>
