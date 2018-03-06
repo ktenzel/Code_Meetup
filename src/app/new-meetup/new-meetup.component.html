@@ -8,14 +8,16 @@
   <br>
 
   <div>
-    <label>Enter User Name</label>
-    <input #newUser>
+    <label>Enter Skill Level</label>
+    <input #skillLevel>
   </div>
 
+  <div>
+    <label>Location</label>
+    <input value="Epicodus" #newLocation>
+  </div>
   <br>
 
   <div>
-    <label>Enter Lesson Material</label>
-    <input #newLesson>
-    <button (click)="submitForm(newLanguage.value, newLesson.value, newUser.value); newLesson.value=''; newLanguage.value=''; newUser.value=''">Add</button>
+    <button (click)="submitForm(newLanguage.value, skillLevel.value, newLocation.value); newLanguage.value=''; skillLevel.value=''; newLocation.value='Epicodus'">Add</button>
   </div>
