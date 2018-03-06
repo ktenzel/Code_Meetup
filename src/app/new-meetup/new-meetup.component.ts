@@ -11,11 +11,11 @@ import { MEETUP } from '../mock-meetup';
 export class NewMeetupComponent implements OnInit {
   meetup: Meetup[] = [];
 
-  submitForm(language: string, project: string, reviewMaterial: string, users: string) {
-    var newMeetupToAdd: Meetup = new Meetup( language, project, reviewMaterial, users);
-    this.meetup.push(newMeetupToAdd);
-    alert("Meetup Added!")
-  }
+  // submitForm(language: string, project: string, reviewMaterial: string, users: string) {
+  //   var newMeetupToAdd: Meetup = new Meetup( language, project, reviewMaterial, users);
+  //   this.meetup.push(newMeetupToAdd);
+  //   alert("Meetup Added!")
+  // }
 
 
   constructor() { }
