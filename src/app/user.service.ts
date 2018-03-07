@@ -10,6 +10,4 @@ export class UserService {
   getUsers() {
     return USERS;
   }
-
-
 }
