@@ -8,16 +8,16 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class AuthenticationService {
   user: Observable<firebase.User>;
-  userDetails: firebase.User = null;
+  currentUser: firebase.User = null;
 
   constructor(public afAuth: AngularFireAuth, private router: Router) {
     this.user = afAuth.authState;
 
     this.user.subscribe(user =>  {
       if(user) {
-        this.userDetails = user;
+        this.currentUser = user;
       } else {
-        this.userDetails = null;
+        this.currentUser = null;
       }
     });
   }
@@ -28,7 +28,7 @@ export class AuthenticationService {
       .catch((error) => console.log(error));
   }
 
-  isLoggedIn() { return this.userDetails ? true : false; }
+  isLoggedIn() { return this.currentUser ? true : false; }
 
   logout() {
     this.afAuth.auth.signOut()
