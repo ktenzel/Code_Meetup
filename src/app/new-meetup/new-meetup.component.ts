@@ -12,8 +12,8 @@ import { UserService } from '../services/user.service';
 })
 export class NewMeetupComponent  {
   createdBy = this.UserService.getCurrentUserUID();
-  constructor(private UserService: UserService, private meetupsService: MeetupsService) { }
 
+  constructor(private UserService: UserService, private meetupsService: MeetupsService) { }
 
   submitForm(language: string, skillLevel: string, location: string, createdBy: string) {
     var newMeetup: Meetup = new Meetup(language, skillLevel, location, this.createdBy);

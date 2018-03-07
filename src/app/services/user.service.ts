@@ -12,6 +12,6 @@ export class UserService {
   }
 
   getCurrentUserUID() {
-    return this.authService.userDetails.uid;
+    return this.authService.currentUser.uid;
   }
 }
