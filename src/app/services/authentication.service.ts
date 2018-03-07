@@ -10,7 +10,7 @@ export class AuthenticationService {
   user: Observable<firebase.User>;
   currentUser: firebase.User = null;
 
-  constructor(public afAuth: AngularFireAuth, private router: Router) {
+  constructor(private af: AngularFire, public afAuth: AngularFireAuth, private router: Router) {
     this.user = afAuth.authState;
 
     this.user.subscribe(user =>  {
@@ -21,6 +21,20 @@ export class AuthenticationService {
       }
     });
   }
+  emailSignUp(credentials: EmailPasswordCredentials): firebase.Promise<FirebaseAuthState> {
+   return this.afAuth.authState.createUser(credentials)
+     .then(() => console.log("success"))
+     .catch(error => console.log(error));
+ }
+
+ emailLogin(credentials: EmailPasswordCredentials): firebase.Promise<FirebaseAuthState> {
+    return this.afAuth.authState.login(credentials,
+      { provider: AuthProviders.Password,
+        method: AuthMethods.Password
+       })
+      .then(() => console.log("success"))
+      .catch(error => console.log(error));
+ }
 
   googleSignIn() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
