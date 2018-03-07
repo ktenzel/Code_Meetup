@@ -13,6 +13,8 @@ import { UserService } from '../services/user.service';
 export class UserProfileComponent {
   users: User[];
 
+
+
   constructor(private router: Router, private userService: UserService) { }
 
 }
