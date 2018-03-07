@@ -1,9 +1,10 @@
-      <li class="nav nav-item" *ngIf="isLoggedIn">
-        <a class="nav-link">{{userName}}</a>
-        <a class="nav-link" (click)="logout()">Log out</a>
+      <li class="nav nav-item" *ngIf="this.authService.isLoggedIn()">
+        <a class="nav-link" routerLink="user-profile">{{ this.authService.userDetails.displayName }}</a>
+        <a class="nav-link" (click)="this.authService.logout()">Log out</a>
       </li>
-      <li class="nav-item" *ngIf ="!isLoggedIn">
+      <li class="nav-item" *ngIf ="!this.authService.isLoggedIn()">
         <a class="nav-link" (click)="openModal(template)">Sign Up/Log In</a>
+        <a class="nav-link" (click)="this.authService.googleSignIn()">Sign Up/Log In</a>
       </li>
 
       <ng-template #template>

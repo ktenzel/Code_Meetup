@@ -18,11 +18,4 @@ export class AppComponent {
 
   constructor(public authService: AuthenticationService, public userService: UserService, private router: Router) { }
 
-  googleSignIn() {
-    this.authService.login()
-      .then((response) => {
-        this.router.navigate(['/']);
-      })
-      .catch((error) => console.log(error));
-  }
 }
