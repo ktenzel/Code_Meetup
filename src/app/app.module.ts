@@ -16,6 +16,7 @@ import { AuthComponent } from './auth/auth.component';
 
 import { ModalModule } from 'ngx-bootstrap';
 import { PrivateComponent } from './private/private.component';
+import { EditMeetupComponent } from './edit-meetup/edit-meetup.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -33,7 +34,8 @@ export const firebaseConfig = {
     MeetupListComponent,
     NewMeetupComponent,
     AuthComponent,
-    PrivateComponent
+    PrivateComponent,
+    EditMeetupComponent
   ],
   imports: [
     BrowserModule,
