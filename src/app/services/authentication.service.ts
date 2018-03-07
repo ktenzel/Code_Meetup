@@ -20,7 +20,6 @@ export class AuthenticationService {
         this.userDetails = null;
       }
     });
-
   }
 
   googleSignIn() {
