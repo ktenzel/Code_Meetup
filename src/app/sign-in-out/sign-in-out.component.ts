@@ -28,10 +28,12 @@ export class SignInOutComponent implements OnInit {
       }
     });
   }
-
-  login() {
-    this.authService.login();
-  }
+  // createUser(name: string, email: string, password: string, link: string, language: string) {
+  //   var newUser: User = new User(email, password);
+  // } -- Work In Progress 03/06/2018
+  // login() {
+  //   this.authService.login();
+  // }
 
   logout() {
     this.authService.logout();
