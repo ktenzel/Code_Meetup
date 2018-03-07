@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
-import { MeetupsService } from '../meetups.service';
-import { Meetup } from '../meetup.model';
+
+import { Meetup } from '../models/meetup.model';
 import { NewMeetupComponent } from '../new-meetup/new-meetup.component';
+import { MeetupsService } from '../services/meetups.service';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css'],
+  selector: 'app-meetup-list',
+  templateUrl: './meetup-list.component.html',
+  styleUrls: ['./meetup-list.component.css'],
   providers: [MeetupsService]
 })
-export class UserListComponent implements OnInit {
+export class MeetupListComponent implements OnInit {
   meetups: FirebaseListObservable<any[]>;
 
   constructor(private meetupsService: MeetupsService) { }

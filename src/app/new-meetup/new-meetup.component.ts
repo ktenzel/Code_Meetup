@@ -1,8 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Meetup } from '../meetup.model';
-import { User } from '../user.model';
-import { MEETUP } from '../mock-meetup';
-import { MeetupsService } from '../meetups.service';
+import { Component } from '@angular/core';
+
+import { Meetup } from '../models/meetup.model';
+import { MeetupsService } from '../services/meetups.service';
 
 @Component({
   selector: 'app-new-meetup',
@@ -10,18 +9,13 @@ import { MeetupsService } from '../meetups.service';
   styleUrls: ['./new-meetup.component.css'],
   providers: [MeetupsService]
 })
-export class NewMeetupComponent implements OnInit {
+export class NewMeetupComponent  {
+
+  constructor(private meetupsService: MeetupsService) { }
 
   submitForm(language: string, skillLevel: string, location: string) {
     var newMeetup: Meetup = new Meetup(language, skillLevel, location);
     this.meetupsService.addMeetup(newMeetup);
     alert("Meetup Added!");
   }
-
-
-  constructor(private meetupsService: MeetupsService) { }
-
-  ngOnInit() {
-  }
-
 }

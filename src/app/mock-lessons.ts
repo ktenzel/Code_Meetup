@@ -1,4 +1,4 @@
-import { Lesson } from './lesson.model';
+import { Lesson } from './models/lesson.model';
 
 // include disclaimer "The days of the week are used to navigate you to the correct lessons and material. These may/will not match with the days you are pairing. Just trust us and follow along."
 

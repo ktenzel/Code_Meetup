@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../user.model';
-import { USERS } from '../mock-users';
-import { UserService } from '../user.service';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { User } from '../models/user.model';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,15 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-profile.component.css'],
   providers: [UserService]
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent {
   users: User[];
 
 
 
   constructor(private router: Router, private userService: UserService) { }
-
-  ngOnInit() {
-    // this.users = this.userService.getUsers();
-  }
 
 }
