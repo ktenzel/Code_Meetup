@@ -1,39 +1,41 @@
 import { Router } from "@angular/router";
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+
+import { User } from './user.model';
+import { UserService } from './user.service';
+
 
 @Injectable()
 export class AuthenticationService {
   user: Observable<firebase.User>;
   userDetails: firebase.User = null;
 
-  constructor(public afAuth: AngularFireAuth, private router: Router) {
+  constructor(public afAuth: AngularFireAuth, private router: Router, public userService: UserService) {
     this.user = afAuth.authState;
 
-    this.user.subscribe((currentUser) =>  {
-      if(currentUser) {
-        this.userDetails = currentUser;
-
-          console.log(this.userDetails.uid);
+    this.user.subscribe(user =>  {
+      if(user) {
+        this.userDetails = user;
       } else {
         this.userDetails = null;
       }
     });
+
   }
 
-	createAccount(email, password) {
-		const credential = firebase.auth.EmailAuthProvider.credential(email, password);
-		return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-	}
-  // this.authService.login();
-  // this.currentUser = new User(this.userName, null, null, this.uid);
-  // this.userService.createUser(this.currentUser);
+	// createAccount(email, password) {
+	// 	const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+	// 	return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+	// }
 
   googleSignIn() {
-    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then((response) => {
+        this.userService.createUser(new User(this.user.displayName, null, null, this.user.uid));
+      });
   }
 
   isLoggedIn() { return this.userDetails ? true : false; }
