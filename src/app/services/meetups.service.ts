@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-
-import { Meetup } from './meetup.model';
-import { MEETUP } from './mock-meetup';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import * as firebase from 'firebase';
+
+import { Meetup } from '../models/meetup.model';
 
 @Injectable()
 export class MeetupsService {

@@ -1,7 +1,7 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { MeetupListComponent } from './meetup-list/meetup-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NewMeetupComponent } from './new-meetup/new-meetup.component';
 import { AuthComponent } from './auth/auth.component';
@@ -15,8 +15,8 @@ const appRoutes: Routes = [
   component: UserProfileComponent
   },
   {
-    path: 'user-list',
-    component: UserListComponent
+    path: 'meetup-list',
+    component: MeetupListComponent
   },
   {
     path: 'new-meetup',
