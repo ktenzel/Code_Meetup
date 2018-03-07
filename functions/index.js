@@ -3,13 +3,16 @@ const admin = require('firebase-admin');
 
 admin.initializeApp(functions.config().firebase);
 
-exports.addUserToDB = functions.auth.user().onCreate(event => {
+exports.createUserOnAuth = functions.auth.user().onCreate(event => {
   let timestamp = Date.now();
+  const user = event.data;
 
-  admin.database().ref('users/' + event.data.uid).set({
-    name: event.data.displayName,
+  admin.database().ref('users/' + user.uid).set({
+    name: user.displayName,
     skill: '',
     language: '',
+    email: user.email,
+    userPhoto: user.photoURL,
     createdOn: timestamp
   });
 });
