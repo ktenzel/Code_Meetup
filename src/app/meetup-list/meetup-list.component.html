@@ -7,6 +7,10 @@
     <p>Location: {{ meetup.location }}</p>
     <p>Contact the creator of this: {{ meetup.creatorContact }}</p>
   </div>
+  <div *ngIf="isLoggedIn">
+    <hr>
+    <app-edit-meetup></app-edit-meetup>
+  </div>
     <!-- <div class="card-body" *ngFor="let user of meetups.users">
       {{ user.name }}
     </div> -->
