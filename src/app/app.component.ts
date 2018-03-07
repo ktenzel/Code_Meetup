@@ -1,36 +1,28 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from './user.model';
+
 import { AuthenticationService } from './authentication.service';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [AuthenticationService]
+  providers: [AuthenticationService, UserService]
 })
 export class AppComponent {
   user;
-  private isLoggedIn: Boolean;
-  private userName: String;
+  private currentUser: User;
   private uid: string;
 
-  constructor(public authService: AuthenticationService) {
-    this.authService.user.subscribe(user =>  {
-      if (user == null) {
-        this.isLoggedIn = false;
-      } else {
-        this.isLoggedIn = true;
-        this.userName = user.displayName;
-        this.uid = user.uid;
-        console.log(this.uid);
-      }
-    });
-  }
+  constructor(public authService: AuthenticationService, public userService: UserService, private router: Router) { }
 
-  login() {
-    this.authService.login();
-  }
-
-  logout() {
-    this.authService.logout();
+  googleSignIn() {
+    this.authService.login()
+      .then((response) => {
+        this.router.navigate(['/']);
+      })
+      .catch((error) => console.log(error));
   }
 }
