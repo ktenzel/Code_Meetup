@@ -22,7 +22,11 @@ export class AuthenticationService {
     });
 
   }
-
+  createUser(email, password){
+    const creds = this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+    return
+  }
+  
   googleSignIn() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((response) => this.router.navigate(['user-profile']))
