@@ -17,6 +17,7 @@ export class UserService {
     return this.users;
   }
 
+  
   createUser(newUser: User) {
     // this.users.push(newUser);
     // this.users.update(user, { createdOn: firebase.database.ServerValue.TIMESTAMP });
