@@ -1,7 +1,31 @@
-<div class="card" *ngFor="let user of users">
+<br>
+<div class="card">
   <div class="card-body">
-    {{ user.displayName }}
-    {{ user.uid }}
-    {{ user.skill }}
+    <div class ="profilePicture">
+      <div *ngIf="googleAccount">
+        <div>
+
+        </div>
+      </div>
+    </div>
+    <h5 class="updateBio">Update Profile Bio:</h5>
+    <textarea rows="5" cols="50" #newBio></textarea>
+    <h5 class="selectHeadings">Update Desired Language:</h5>
+        <select #newLanguage>
+          <option value="HTML/CSS Intro">HTML/CSS Intro</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Javascript and JQuery">Javascript and JQuery</option>
+          <option value="JavaScript/Angular">JavaScript/Angular</option>
+          <option value="Java">Java</option>
+        </select>
+        <br><br>
+    <h5 class="selectHeadings">Update Skill Level:</h5>
+        <select #skillLevel>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+        <button (click)="submitForm(newLanguage.value, skillLevel.value); newLanguage.value=''; skillLevel.value=''">Update</button>
   </div>
 </div>
