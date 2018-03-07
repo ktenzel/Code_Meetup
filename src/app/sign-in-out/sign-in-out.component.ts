@@ -20,8 +20,10 @@ export class SignInOutComponent implements OnInit {
     this.authService.user.subscribe(user =>  {
       if (user == null) {
         this.isLoggedIn = false;
+        console.log(this.isLoggedIn)
       } else {
         this.isLoggedIn = true;
+        console.log(this.isLoggedIn)
         this.userName = user.displayName;
         this.uid = user.uid;
         console.log(this.uid);
