@@ -34,7 +34,9 @@
                 <option value="JavaScriptAngular">JavaScript/Angular</option>
                 <option value="Java">Java</option>
               </select>
-              <button *ngIf="modalRef" type="button" class="btn btn-danger center" (click)="submitNewUser(newName.value, newEmail.value, newPassword.value, newLink.value, newLanguage.value)">Submit</button>
+
+              <button *ngIf="modalRef" type="button" class="btn btn-danger center" (click)="this.authService.emailSignUp(newEmail.value, newPassword.value)">Submit</button>
+              <!-- <button *ngIf="modalRef" type="button" class="btn btn-danger center" (click)="submitNewUser(newName.value, newEmail.value, newPassword.value, newLink.value, newLanguage.value)">Submit</button> -->
             </form>
           </div>
 
