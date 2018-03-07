@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from './user.model';
 
-import { AuthenticationService } from './authentication.service';
-import { UserService } from './user.service';
+import { User } from './models/user.model';
+import { AuthenticationService } from './services/authentication.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +12,7 @@ import { UserService } from './user.service';
   providers: [AuthenticationService, UserService]
 })
 export class AppComponent {
-  user;
-  private currentUser: User;
-  private uid: string;
 
-  constructor(public authService: AuthenticationService, public userService: UserService, private router: Router) { }
+  constructor(public authService: AuthenticationService, private router: Router) { }
 
 }
