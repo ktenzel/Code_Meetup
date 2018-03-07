@@ -1,8 +1,7 @@
 export const masterFirebaseConfig = {
-  apiKey: "AIzaSyCVNCHvCb4TBfUAx-Wj6tj-SAT8jvGA7DE",
-    authDomain: "codemeetup-48d63.firebaseapp.com",
-    databaseURL: "https://codemeetup-48d63.firebaseio.com",
-    projectId: "codemeetup-48d63",
-    storageBucket: "codemeetup-48d63.appspot.com",
-    messagingSenderId: "840765076931"
+  apiKey: "AIzaSyChBvYreZ0bZyz14vAApLL7HN8s1nykYb8",
+  authDomain: "codeday-epicodus.firebaseapp.com",
+  databaseURL: "https://codeday-epicodus.firebaseio.com",
+  storageBucket: "codeday-epicodus.appspot.com",
+  messagingSenderId: "614917843578"
 }
