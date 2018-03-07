@@ -22,11 +22,13 @@ export class AuthenticationService {
     });
 
   }
-  createUser(email, password){
-    const creds = this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-    return
-  }
-  
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
   googleSignIn() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((response) => this.router.navigate(['user-profile']))
