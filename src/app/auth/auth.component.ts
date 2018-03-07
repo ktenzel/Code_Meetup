@@ -1,7 +1,8 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
+import { Component, TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-auth',
@@ -9,11 +10,10 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   styleUrls: ['./auth.component.css'],
   providers: [AuthenticationService]
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
   modalRef: BsModalRef;
-  constructor(public authService: AuthenticationService, private modalService: BsModalService) { }
 
-  ngOnInit() { }
+  constructor(public authService: AuthenticationService, private modalService: BsModalService) { }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
