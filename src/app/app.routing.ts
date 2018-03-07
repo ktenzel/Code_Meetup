@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NewMeetupComponent } from './new-meetup/new-meetup.component';
-import { SignInOutComponent } from './sign-in-out/sign-in-out.component';
+import { AuthComponent } from './auth/auth.component';
 const appRoutes: Routes = [
   {
   path: '',
@@ -23,8 +23,8 @@ const appRoutes: Routes = [
     component: NewMeetupComponent
   },
   {
-    path: 'sign-in-out',
-    component: SignInOutComponent
+    path: 'auth',
+    component: AuthComponent
   }
 
 ];
