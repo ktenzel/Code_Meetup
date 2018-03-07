@@ -5,6 +5,8 @@ import { Meetup } from '../models/meetup.model';
 import { NewMeetupComponent } from '../new-meetup/new-meetup.component';
 import { MeetupsService } from '../services/meetups.service';
 
+import { LESSONS } from '../mock-lessons';
+
 @Component({
   selector: 'app-meetup-list',
   templateUrl: './meetup-list.component.html',
