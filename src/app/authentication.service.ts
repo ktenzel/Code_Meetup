@@ -34,7 +34,9 @@ export class AuthenticationService {
   googleSignIn() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((response) => {
-        this.userService.createUser(new User(this.user.displayName, null, null, this.user.uid));
+        console.log(this.user.displayName);
+        let currentUser = new User(this.user.displayName, null, null, this.user.uid);
+        this.userService.createUser(currentUser);
       });
   }
 
