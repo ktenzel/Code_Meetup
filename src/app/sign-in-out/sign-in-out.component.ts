@@ -10,40 +10,16 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   providers: [AuthenticationService]
 })
 export class SignInOutComponent implements OnInit {
-
-  user;
-  private isLoggedIn: Boolean;
-  private userName: String;
-  private uid: string;
   modalRef: BsModalRef;
-  constructor(public authService: AuthenticationService, private modalService: BsModalService) {
-    this.authService.user.subscribe(user =>  {
-      if (user == null) {
-        this.isLoggedIn = false;
-      } else {
-        this.isLoggedIn = true;
-        this.userName = user.displayName;
-        this.uid = user.uid;
-        console.log(this.uid);
-      }
-    });
-  }
-  // createUser(name: string, email: string, password: string, link: string, language: string) {
-  //   var newUser: User = new User(email, password);
-  // } -- Work In Progress 03/06/2018
-  // login() {
-  //   this.authService.login();
-  // }
-
-  logout() {
-    this.authService.logout();
-  }
-  ngOnInit() {
-  }
+  constructor(public authService: AuthenticationService, private modalService: BsModalService) { }
+  
+  ngOnInit() { }
+  
   openModal(template: TemplateRef<any>) {
-      this.modalRef = this.modalService.show(template);
-    }
-    closeFirstModal() {
+    this.modalRef = this.modalService.show(template);
+  }
+  
+  closeFirstModal() {
     this.modalRef.hide();
     this.modalRef = null;
   }

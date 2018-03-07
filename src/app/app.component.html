@@ -5,15 +5,13 @@
     </div>
 
     <ul class="nav navbar-nav navbar-right">
-      <app-sign-in-out></app-sign-in-out>
-      <li class="nav-item"><a class="nav-link" routerLink="user-profile">User Profile</a></li>
       <li class="nav-item"><a class="nav-link" routerLink="new-meetup">Create Meetup</a></li>
       <li class="nav-item"><a class="nav-link" routerLink="user-list">Meetup List</a></li>
+      <app-sign-in-out></app-sign-in-out>
     </ul>
   </div>
 </nav>
 
 <div class="container">
-  <!-- <h1>{{title}}</h1> -->
   <router-outlet></router-outlet>
 </div>
