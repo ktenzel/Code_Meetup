@@ -4,7 +4,7 @@
       </li>
       <li class="nav-item" *ngIf ="!this.authService.isLoggedIn()">
         <a class="nav-link" (click)="openModal(template)">Sign Up/Log In</a>
-        
+
       </li>
 
       <ng-template #template>
@@ -17,46 +17,30 @@
         <div class="modal-body form-elegant">
           <div class = "signUp">
             <form class="newUser" action="index.html" method="post">
-              <input class="form-control" type="text" name="name" placeholder="Name" required>
+              <input #newName class="form-control" type="text" name="name" placeholder="Name" required>
               <br>
-              <input class="form-control" type="text" name="email" placeholder="Email" required>
+              <input #newEmail class="form-control" type="text" name="email" placeholder="Email" required>
               <br>
-              <input class="form-control" type="password" required placeholder="Password">
+              <input #newPassword class="form-control" type="password" required placeholder="Password">
               <br>
-              <input class="form-control" type="text" name="link" placeholder="Github link or Website" required>
+              <input #newLink class="form-control" type="text" name="link" placeholder="Github link or Website" required>
               <br>
 
-              <!-- <label for="language">Language</label>
-              <select class="language" name="language" required>
-                <option value="java">Java</option>
-                <option value="javascript">Javascript</option>
-                <option value="ruby">Ruby</option>
-                <option value="python">Python</option>
-                <option value="c">C#</option>
-                <option value="react">React</option>
-                <option value="design">Design</option>
-              </select> -->
-
-              <div class="btn-group">
-                  <button class="btn btn-outline-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</button>
-
-                  <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#" value="java">Java</a>
-                      <a class="dropdown-item" href="#" value="javascript">Javascript</a>
-                      <a class="dropdown-item" href="#" value="ruby">Ruby</a>
-                      <a class="dropdown-item" href="#" value="python">Python</a>
-                      <a class="dropdown-item" href="#" value="c">C#</a>
-                      <a class="dropdown-item" href="#" value="react">React</a>
-                      <a class="dropdown-item" href="#" value="design">Design</a>
-                  </div>
-              </div>
-
-
+              <select #newLanguage class="language custom-select" name="Language" required>
+                <option >Language</option>
+                <option value="HTMLCSSIntro">HTML/CSS Intro</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="JavascriptAndJQuery">Javascript and JQuery</option>
+                <option value="JavaScriptAngular">JavaScript/Angular</option>
+                <option value="Java">Java</option>
+              </select>
+              <button *ngIf="modalRef" type="button" class="btn btn-danger center" (click)="submitNewUser(newName.value, newEmail.value, newPassword.value, newLink.value, newLanguage.value)">Submit</button>
             </form>
           </div>
-          <button *ngIf="modalRef" type="button" class="btn btn-danger center" (click)="closeFirstModal()">Submit</button>
+
           <br>
-          <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
+          <button type="button" class="btn btn-primary center">Sign in</button>
           <br>
           <button class="btn btn-primary center" (click)="this.authService.googleSignIn(); closeFirstModal()">Sign in with Google</button>
 
