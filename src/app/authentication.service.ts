@@ -25,9 +25,7 @@ export class AuthenticationService {
 
   googleSignIn() {
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-      .then((response) => {
-
-      })
+      .then((response) => this.router.navigate(['user-profile']))
       .catch((error) => console.log(error));
   }
 
