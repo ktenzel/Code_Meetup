@@ -12,6 +12,7 @@ exports.addUserToDB = functions.auth.user().onCreate(event => {
     skill: '',
     language: '',
     email: user.email,
+    userPhoto: user.photoURL,
     createdOn: timestamp
   });
 });
