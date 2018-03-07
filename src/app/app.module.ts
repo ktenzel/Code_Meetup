@@ -12,7 +12,7 @@ import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2'
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { SignInOutComponent } from './sign-in-out/sign-in-out.component';
+import { AuthComponent } from './auth/auth.component';
 
 import { ModalModule } from 'ngx-bootstrap';
 
@@ -31,16 +31,16 @@ export const firebaseConfig = {
     UserProfileComponent,
     UserListComponent,
     NewMeetupComponent,
-    SignInOutComponent
+    AuthComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpModule,
     routing,
     ModalModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    FormsModule,
-    HttpModule,
     AngularFireAuthModule
   ],
   providers: [],
