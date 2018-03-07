@@ -16,20 +16,16 @@
         <div class="modal-body form-elegant">
           <div class = "signUp">
             <form class="newUser" action="index.html" method="post">
-              <label for="name">Name</label>
               <input class="form-control" type="text" name="name" placeholder="Name" required>
               <br>
-              <label for="email">Email</label>
               <input class="form-control" type="text" name="email" placeholder="Email" required>
               <br>
-              <label for="password">Password</label>
-              <input class="form-control" type="password" required>
+              <input class="form-control" type="password" required placeholder="Password">
               <br>
-              <label for="link">Github link or Website</label>
               <input class="form-control" type="text" name="link" placeholder="Github link or Website" required>
               <br>
 
-              <label for="language">Language</label>
+              <!-- <label for="language">Language</label>
               <select class="language" name="language" required>
                 <option value="java">Java</option>
                 <option value="javascript">Javascript</option>
@@ -38,10 +34,10 @@
                 <option value="c">C#</option>
                 <option value="react">React</option>
                 <option value="design">Design</option>
-              </select>
+              </select> -->
 
               <div class="btn-group">
-                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</button>
+                  <button class="btn btn-outline-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</button>
 
                   <div class="dropdown-menu">
                       <a class="dropdown-item" href="#" value="java">Java</a>
@@ -61,7 +57,7 @@
           <br>
           <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
           <br>
-          <button class="btn btn-primary center" (click)="this.authService.login()"><i class="fa fa-google-plus blue-text"></i></button>
+          <button class="btn btn-primary center" (click)="this.authService.login()">Google</button>
 
         </div>
       </ng-template>
