@@ -51,7 +51,7 @@
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
   },
-  "description": "",
+  "description": "<p align=\"center\"><img width=\"60%\" src=\"src/assets/codeday_logo.png\"></p>",
   "main": "karma.conf.js",
   "repository": {
     "type": "git",

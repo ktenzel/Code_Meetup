@@ -2,3 +2,17 @@
   margin: auto;
   display: block;
 }
+
+.blue-gradient{
+background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+}
+
+.btn:hover {
+  background-position: right center;
+}
+.btn {
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  color: white;
+  border-radius: 20px;
+}
