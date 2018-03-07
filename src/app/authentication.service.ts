@@ -1,6 +1,5 @@
 import { Router } from "@angular/router";
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -17,7 +16,7 @@ export class AuthenticationService {
       if(currentUser) {
         this.userDetails = currentUser;
 
-          console.log(this.userDetails.uid);
+          // console.log(this.userDetails.uid);
       } else {
         this.userDetails = null;
       }
@@ -32,7 +31,7 @@ export class AuthenticationService {
   // this.currentUser = new User(this.userName, null, null, this.uid);
   // this.userService.createUser(this.currentUser);
 
-  googleSignIn() {
+  login() {
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
