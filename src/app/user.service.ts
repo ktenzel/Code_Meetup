@@ -16,24 +16,4 @@ export class UserService {
     return this.users;
   }
 
-  createUser(newUser: User) {
-    this.users.$ref.orderByKey().on('child_added', (snapshot) => {
-      if (newUser.uid != snapshot.val().uid) {
-        this.userExists = false;
-      } else {
-        this.userExists = true;
-        console.log('User Exists!');
-      }
-    });
-
-    if (this.userExists == false) {
-      this.users.push(newUser);
-    } else {
-      alert('User Already Exists!');
-    }
-
-    this.users.$ref.orderByKey().limitToLast(1).on("child_added", (user) => {
-      this.users.update(user, { createdOn: firebase.database.ServerValue.TIMESTAMP });
-    });
-  }
 }

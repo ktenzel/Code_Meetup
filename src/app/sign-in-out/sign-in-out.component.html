@@ -1,5 +1,5 @@
       <li class="nav nav-item" *ngIf="this.authService.isLoggedIn()">
-        <a class="nav-link">{{ this.authService.userDetails.displayName }}</a>
+        <a class="nav-link" routerLink="user-profile">{{ this.authService.userDetails.displayName }}</a>
         <a class="nav-link" (click)="this.authService.logout()">Log out</a>
       </li>
       <li class="nav-item" *ngIf ="!this.authService.isLoggedIn()">
