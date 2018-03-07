@@ -6,7 +6,7 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { MeetupListComponent } from './meetup-list/meetup-list.component';
 import { NewMeetupComponent } from './new-meetup/new-meetup.component';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2'
@@ -29,7 +29,7 @@ export const firebaseConfig = {
     AppComponent,
     HomeComponent,
     UserProfileComponent,
-    UserListComponent,
+    MeetupListComponent,
     NewMeetupComponent,
     AuthComponent
   ],
