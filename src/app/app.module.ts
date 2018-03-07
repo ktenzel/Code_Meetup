@@ -15,7 +15,6 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthComponent } from './auth/auth.component';
 
 import { ModalModule } from 'ngx-bootstrap';
-import { PublicComponent } from './public/public.component';
 import { PrivateComponent } from './private/private.component';
 
 export const firebaseConfig = {
@@ -34,7 +33,6 @@ export const firebaseConfig = {
     MeetupListComponent,
     NewMeetupComponent,
     AuthComponent,
-    PublicComponent,
     PrivateComponent
   ],
   imports: [
