@@ -10,9 +10,9 @@
     <p class="lessonList" routerLink="/lessons-list"><b><em>Click here to find a lesson based on language and skill level</em></b></p>
     <p class = "contactInfo"> <a href="mailto:{{ meetup.creatorEmail }}?Subject=Meetup">Contact the creator of this meetup </a></p>
 
-  <div *ngIf="isLoggedIn">
-    <hr>
-    <app-edit-meetup [selectedMeetup]="meetup"></app-edit-meetup>
-  </div>
+    <div *ngIf="this.authService.isLoggedIn()">
+      <hr>
+      <app-edit-meetup [selectedMeetup]="meetup"></app-edit-meetup>
+    </div>
   </div>
 </div>

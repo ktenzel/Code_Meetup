@@ -27,8 +27,10 @@ export class AuthenticationService {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(() => {
       let cUser = firebase.auth().currentUser;
       firebase.database().ref('users/' + cUser.uid).update({
+        bio: '',
         language: language,
         name: name,
+        skillLevel: 'beginner',
         url: url
       }).then(() => {
         cUser.updateProfile({
@@ -50,6 +52,16 @@ export class AuthenticationService {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((response) => this.router.navigate(['user-profile']))
       .catch((error) => console.log(error));
+  }
+
+  updateUser(bio: string, language: string, skillLevel: string) {
+    let cUser = firebase.auth().currentUser;
+
+    firebase.database().ref('users/' + cUser.uid).update({
+      bio: bio,
+      language: language,
+      skillLevel: skillLevel
+    }).catch(updatError => console.warn(`Error Updating user: ${updatError}`));
   }
 
   isLoggedIn() {
