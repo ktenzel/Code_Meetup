@@ -1,0 +1,10 @@
+<br>
+<div class="card" *ngFor="let lesson of lessons">
+    <div class="card-body">
+      <p>{{ lesson.instructions }}</p>
+      <p>{{ lesson.language }}</p>
+      <p>{{ lesson.skillLevel }}</p>
+      <p>Preperation Review Material: <a href="{{ lesson.reviewMaterial }}">Review this material before Code Day!</a></p>
+      <p>Code Day Material: <a href="{{ lesson.meetUpDayMaterial }}">Start Code Day with this material!</a></p>
+    </div>
+</div>
