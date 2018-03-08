@@ -31,8 +31,10 @@ export class AuthenticationService {
         photoURL: 'https://lh5.googleusercontent.com/-MJinLOQveVw/AAAAAAAAAAI/AAAAAAAAAAc/e_0_T9fV5Gw/photo.jpg'
       }).then(() => {
         firebase.database().ref('users/' + cUser.uid).update({
+          bio: '',
           language: language,
           name: name,
+          skillLevel: 'beginner',
           url: url
         }).catch(updatError => console.warn(`Error Updating user: ${updatError}`));
       }).catch(updateProfileError => console.log(updateProfileError));
@@ -50,6 +52,16 @@ export class AuthenticationService {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((response) => this.router.navigate(['user-profile']))
       .catch((error) => console.log(error));
+  }
+
+  updateUser(bio: string, language: string, skillLevel: string) {
+    let cUser = firebase.auth().currentUser;
+    
+    firebase.database().ref('users/' + cUser.uid).update({
+      bio: bio,
+      language: language,
+      skillLevel: skillLevel
+    }).catch(updatError => console.warn(`Error Updating user: ${updatError}`));
   }
 
   isLoggedIn() {

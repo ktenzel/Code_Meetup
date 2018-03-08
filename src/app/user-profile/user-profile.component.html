@@ -21,11 +21,11 @@
         </select>
         <br><br>
     <h5 class="selectHeadings">Update Skill Level:</h5>
-        <select #skillLevel>
+        <select #newSkillLevel>
           <option value="beginner">Beginner</option>
           <option value="intermediate">Intermediate</option>
           <option value="advanced">Advanced</option>
         </select>
-        <button (click)="submitForm(newLanguage.value, skillLevel.value); newLanguage.value=''; skillLevel.value=''">Update</button>
+        <button (click)="this.authService.updateUser(newBio.value, newLanguage.value, newSkillLevel.value);">Update</button>
   </div>
 </div>
