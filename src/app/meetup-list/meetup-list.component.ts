@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { UserService } from '../services/user.service';
 import { LESSONS } from '../mock-lessons';
 
 
