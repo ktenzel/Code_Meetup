@@ -5,3 +5,7 @@
   float: left;
   margin: 15px;
 }
+
+p {
+  line-height: 1;
+}
