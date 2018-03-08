@@ -1,0 +1,11 @@
+<br>
+<div class="card" *ngFor="let lesson of lessons">
+    <div class="card-body">
+      <p><b>Instructions:</b> {{ lesson.instructions }}</p>
+      <p><b>Language Focus:</b> {{ lesson.language }}</p>
+      <p><b>Skill Level:</b> {{ lesson.skillLevel }}</p>
+      <p><b>Preperation Review Material:</b> <a href="{{ lesson.reviewMaterial }}" target="_blank">Review this material before Code Day!</a></p>
+      <p><b>Code Day Material:</b> <a href="{{ lesson.meetUpDayMaterial }}" target="_blank">Start Code Day with this material!</a></p>
+      <p><sub>***At times you will be jumping into material that is in full swing in a 6 month coding program, so if the timing and wording doesn’t match up or doesn’t seem to make sense, this is probably the reason. Just review the material with your pair and focus on the educational content. Use the previous and next buttons to navigate between lessons and content, and use the search feature if something is not familiar.***</sub></p>
+    </div>
+</div>
