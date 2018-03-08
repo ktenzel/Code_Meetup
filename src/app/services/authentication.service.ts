@@ -26,18 +26,18 @@ export class AuthenticationService {
     const credential = firebase.auth.EmailAuthProvider.credential(email, password);
     this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(() => {
       let cUser = firebase.auth().currentUser;
-      cUser.updateProfile({
-        displayName: name,
-        photoURL: 'https://lh5.googleusercontent.com/-MJinLOQveVw/AAAAAAAAAAI/AAAAAAAAAAc/e_0_T9fV5Gw/photo.jpg'
+      firebase.database().ref('users/' + cUser.uid).update({
+        bio: '',
+        language: language,
+        name: name,
+        skillLevel: 'beginner',
+        url: url
       }).then(() => {
-        firebase.database().ref('users/' + cUser.uid).update({
-          bio: '',
-          language: language,
-          name: name,
-          skillLevel: 'beginner',
-          url: url
-        }).catch(updatError => console.warn(`Error Updating user: ${updatError}`));
-      }).catch(updateProfileError => console.log(updateProfileError));
+        cUser.updateProfile({
+          displayName: name,
+          photoURL: 'https://lh5.googleusercontent.com/-MJinLOQveVw/AAAAAAAAAAI/AAAAAAAAAAc/e_0_T9fV5Gw/photo.jpg'
+        }).catch(updateProfileError => console.log(updateProfileError));
+      }).catch(updatError => console.warn(`Error Updating user: ${updatError}`));
     }).catch(error => console.warn(error));
   }
 
@@ -56,7 +56,7 @@ export class AuthenticationService {
 
   updateUser(bio: string, language: string, skillLevel: string) {
     let cUser = firebase.auth().currentUser;
-    
+
     firebase.database().ref('users/' + cUser.uid).update({
       bio: bio,
       language: language,

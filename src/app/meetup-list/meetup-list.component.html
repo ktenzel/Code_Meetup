@@ -9,7 +9,7 @@
     <p>Contact the creator of this: {{ meetup.creatorEmail }}</p>
     <p class="lessonList" routerLink="/lessons-list"><b><em>Click here to find a lesson based on language and skill level</em></b></p>
 
-    <div *ngIf="isLoggedIn">
+    <div *ngIf="this.authService.isLoggedIn()">
       <hr>
       <app-edit-meetup [selectedMeetup]="meetup"></app-edit-meetup>
     </div>
