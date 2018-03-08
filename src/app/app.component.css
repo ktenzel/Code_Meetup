@@ -6,6 +6,7 @@ Primary style
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+   height:100%;
 }
 
 *, *:after, *:before {
@@ -19,6 +20,8 @@ body {
   font-family: "PT Sans", sans-serif;
   color: #505260;
   background-color: #fff;
+  display:flex;
+  align-items:center;
 }
 
 a {
