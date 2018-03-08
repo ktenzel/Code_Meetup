@@ -16,6 +16,7 @@ export class AuthenticationService {
     this.user.subscribe(user =>  {
       if(user) {
         this.currentUser = user;
+        // console.log(this.currentUser)
       } else {
         this.currentUser = null;
       }
@@ -28,7 +29,9 @@ export class AuthenticationService {
       .catch((error) => console.log(error));
   }
 
-  isLoggedIn() { return this.currentUser ? true : false; }
+  isLoggedIn() {
+    return this.currentUser ? true : false;
+  }
 
   logout() {
     this.afAuth.auth.signOut()

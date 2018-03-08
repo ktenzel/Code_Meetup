@@ -1,4 +1,5 @@
       <li class="nav nav-item" *ngIf="this.authService.isLoggedIn()">
+        <a class="nav-link" routerLink="user-profile"><img class="profilePic" src="{{ this.authService.currentUser.photoURL }}"></a>
         <a class="nav-link" routerLink="user-profile">{{ this.authService.currentUser.displayName }}</a>
         <a class="nav-link" (click)="this.authService.logout()">Log out</a>
       </li>
