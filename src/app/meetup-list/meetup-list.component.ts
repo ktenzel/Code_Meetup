@@ -21,38 +21,14 @@ import { LessonService } from '../services/lesson.service';
 
 export class MeetupListComponent implements OnInit {
   meetups: FirebaseListObservable<any[]>;
-  currentRoute: string = this.router.url;
-  user;
-  private isLoggedIn: Boolean;
-  private userName: String;
-  meetupId: number;
 
-
-  constructor(
-    private meetupsService: MeetupsService,
-    private router: Router,
-    public authService: AuthenticationService,
-    private route: ActivatedRoute,
-    private lessonService: LessonService
-  ) {
-    this.authService.user.subscribe(user => {
-          if (user == null) {
-            this.isLoggedIn = false;
-            // this.router.navigate(['public']);
-          } else {
-            this.isLoggedIn = true;
-            this.userName = user.displayName;
-            this.router.navigate([]);
-          }
+  constructor(private router: Router, private route: ActivatedRoute, private meetupsService: MeetupsService, public authService: AuthenticationService) {
+    this.authService.user.subscribe(() => {
+      console.log(this.authService.currentUser.uid);
     });
-   }
+  }
 
   ngOnInit() {
     this.meetups = this.meetupsService.getMeetups();
-    this.route.params.forEach((urlParameters) => {
-     this.meetupId = parseInt(urlParameters['id']);
-   });
- }
-
-
+  }
 }
