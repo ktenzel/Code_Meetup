@@ -1,12 +1,16 @@
+<br>
 <div class="card" *ngFor="let meetup of meetups | async">
+
   <div class="card-body">
     <p>Language being studied: {{ meetup.language }}</p>
     <p>Skill Level: {{ meetup.skillLevel }}</p>
     <p>Created On: {{ meetup.startedAt | date:"MM/dd @ hh:mm a" }}</p>
     <p>Location: {{ meetup.location }}</p>
-    <p>Contact the creator of this: {{ meetup.creatorContact }}</p>
+    <p>Contact the creator of this:</p>
+
+  <div *ngIf="isLoggedIn">
+    <hr>
+    <app-edit-meetup [selectedMeetup]="meetup"></app-edit-meetup>
   </div>
-    <!-- <div class="card-body" *ngFor="let user of meetups.users">
-      {{ user.name }}
-    </div> -->
   </div>
+</div>

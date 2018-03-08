@@ -62,13 +62,26 @@ export class AuthenticationService {
  //      .catch(error => console.log(error));
  // }
 
+  emailSignUp(name: string, email: string, password: string, url: string, language: string) {
+    const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(() => {
+      firebase.database().ref('users/' + firebase.auth().currentUser.uid).update({
+        language: language,
+        name: name,
+        url: url
+      }).catch(updatError => console.warn(`Error Updating user: ${updatError}`));
+    }).catch(error => console.warn(error));
+  }
+
   googleSignIn() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((response) => this.router.navigate(['user-profile']))
       .catch((error) => console.log(error));
   }
 
-  isLoggedIn() { return this.currentUser ? true : false; }
+  isLoggedIn() {
+    return this.currentUser ? true : false;
+  }
 
   logout() {
     this.afAuth.auth.signOut()

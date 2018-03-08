@@ -17,14 +17,13 @@
   width: 95%;
 }
 
-.language{
-  width: 100%;
-  height: 36px;
-  border: none;
-  color: black;
+.signInWithGoogle {
+  margin: auto;
+  display: block;
 }
 
-select{
-  margin: 0px;
-  margin-bottom: 10px;
+.profilePic {
+ height: 35px;
+ width: 35px;
+ border-radius: 20px;
 }

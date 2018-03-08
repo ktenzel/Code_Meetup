@@ -1,75 +1,36 @@
-<!-- <div class = "card">
+<br><br>
+<div class = "card">
   <h1>New Meetup</h1>
 
-  <h5 class="selectHeadings">Select Desired Language:</h5>
-      <select #newLanguage>
-        <option value="HTML/CSS Intro">HTML/CSS Intro</option>
-        <option value="CSS">CSS</option>
-        <option value="JavaScript">JavaScript</option>
-        <option value="Javascript and JQuery">Javascript and JQuery</option>
-        <option value="JavaScript/Angular">JavaScript/Angular</option>
-        <option value="Java">Java</option>
-      </select>
 
-<h5 class="selectHeadings">Select Skill Level:</h5>
-      <select #skillLevel>
-        <option value="beginner">Beginner</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="advanced">Advanced</option>
-      </select>
 
-  <div>
-    <label>Location</label>
-    <input value="Epicodus" #newLocation>
-  </div>
+      <h5 class="selectHeadings">Select Desired Language:</h5>
+      <div class="dropdowns">
+        <select  #newLanguage>
+          <option value="HTML/CSS Intro">HTML/CSS Intro</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Javascript and JQuery">Javascript and JQuery</option>
+          <option value="JavaScript/Angular">JavaScript/Angular</option>
+          <option value="Java">Java</option>
+        </select>
+      </div>
+      <h5 class="selectHeadings">Select Skill Level:</h5>
+      <div class="dropdowns">
+          <select #skillLevel>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+      </div>
+    <br>
+    <div>
+      <label>Location</label>
+      <input value="Epicodus" #newLocation>
+    </div>
   <br>
 
   <div>
-    <button (click)="submitForm(newLanguage.value, skillLevel.value, newLocation.value); newLanguage.value=''; skillLevel.value=''; newLocation.value='Epicodus'">Add</button>
-  </div> -->
-
-
-<div class="card">
-  <div class="card-body">
-    <div class="form">
-      <div class="newMeetup">
-        <form class="newMeetup" action="index.html" method="post">
-
-          <div class="form-row">
-            <div class="col">
-              <div class="form-group col-md-4">
-                <h5 class="card-title" for="desiredLang">Language</h5>
-                <select id="desiredLang" class="form-control btn-outline-info dropdown-toggle" #newLanguage>
-                  <option disabled selected>Language</option>
-                  <option value="html-css">HTML/CSS Intro</option>
-                  <option value="css">CSS</option>
-                  <option value="js">JavaScript</option>
-                  <option value="js-jq">Javascript and JQuery</option>
-                  <option value="js-ang">JavaScript/Angular</option>
-                  <option value="java">Java</option>
-                </select>
-              </div>
-
-            </div>
-
-            <div class="col">
-              <div class="btn-group">
-                <button class="btn btn-outline-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-enxpanded="false">Skill Level</button>
-                <div class="dropdown-menu" #skillLevel>
-                  <a class="dropdown-item" href="#" value="beginner">Beginner</a>
-                  <a class="dropdown-item" href="#" value="intermediate">Intermediate</a>
-                  <a class="dropdown-item" href="#" value="advanced">Advanced</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br>
-          <br>
-        <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
-      </form>
-    </div>
-    <br>
-  </div>
-
+    <button (click)="submitForm(newLanguage.value, skillLevel.value, newLocation.value); newLanguage.value=''; skillLevel.value=''; newLocation.value='Epicodus'; this.userService.getMeetupByUid()">Add</button>
   </div>
 </div>
