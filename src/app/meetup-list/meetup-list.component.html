@@ -6,7 +6,7 @@
     <p>Skill Level: {{ meetup.skillLevel }}</p>
     <p>Created On: {{ meetup.startedAt | date:"MM/dd @ hh:mm a" }}</p>
     <p>Location: {{ meetup.location }}</p>
-    <p>Contact the creator of this:</p>
+    <p>Contact the creator of this: {{ meetup.creatorEmail }}</p>
 
   <div *ngIf="isLoggedIn">
     <hr>
