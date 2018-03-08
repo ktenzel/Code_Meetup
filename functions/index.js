@@ -8,11 +8,11 @@ exports.createUserOnAuth = functions.auth.user().onCreate(event => {
   const user = event.data;
 
   admin.database().ref('users/' + user.uid).set({
-    name: user.displayName,
-    skill: '',
-    language: '',
+    createdOn: timestamp,
     email: user.email,
-    userPhoto: user.photoURL,
-    createdOn: timestamp
+    language: '',
+    name: user.displayName ? user.displayName : '',
+    url: '',
+    userPhoto: user.photoURL ? user.photoURL : 'https://lh5.googleusercontent.com/-MJinLOQveVw/AAAAAAAAAAI/AAAAAAAAAAc/e_0_T9fV5Gw/photo.jpg'
   });
 });
