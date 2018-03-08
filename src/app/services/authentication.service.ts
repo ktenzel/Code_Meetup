@@ -21,46 +21,6 @@ export class AuthenticationService {
       }
     });
   }
-// newName.value, newEmail.value, newPassword.value, newLink.value, newLanguage.value
-  emailSignUp(name: string, email: string, password: string, url: string, language: string) {
-    const credential = firebase.auth.EmailAuthProvider.credential(email, password);
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        let cUser = firebase.auth().currentUser;
-
-        cUser.updateProfile({
-          displayName: name,
-          photoURL: cUser.photoURL //'https://lh5.googleusercontent.com/-MJinLOQveVw/AAAAAAAAAAI/AAAAAAAAAAc/e_0_T9fV5Gw/photo.jpg'
-        }).then(() => {
-          firebase.database().ref('users/' + firebase.auth().currentUser.uid).update({
-            language: language,
-            name: name,
-            url: url
-          }).catch(error => console.warn(error));
-        });
-      }).catch(error => console.warn(error));
-  }
-  //firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-  //   var errorCode = error.code;
-  //   var errorMessage = error.message;
-  //   // ...
-  // });
-
- //  emailSignUp(credentials: EmailPasswordCredentials): firebase.Promise<FirebaseAuthState> {
- //   return this.afAuth.authState.createUser(credentials)
- //     .then(() => console.log("success"))
- //     .catch(error => console.log(error));
- // }
-
- // emailLogin(credentials: EmailPasswordCredentials): firebase.Promise<FirebaseAuthState> {
- //    return this.afAuth.authState.login(credentials,
- //      { provider: AuthProviders.Password,
- //        method: AuthMethods.Password
- //       })
- //      .then(() => console.log("success"))
- //      .catch(error => console.log(error));
- // }
 
   emailSignUp(name: string, email: string, password: string, url: string, language: string) {
     const credential = firebase.auth.EmailAuthProvider.credential(email, password);
@@ -85,7 +45,8 @@ export class AuthenticationService {
 
   logout() {
     this.afAuth.auth.signOut()
-      .then((response) => this.router.navigate(['/']));
+      .then((response) => this.router.navigate(['/']))
+      .catch(logoutError => console.warn(`Logout Error ${logoutError}`));
   }
 
 }
