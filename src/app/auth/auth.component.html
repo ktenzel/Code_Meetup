@@ -7,7 +7,7 @@
         <a class="nav-link" (click)="openModal(template)">Sign Up/Log In</a>
 
       </li> -->
-<li *ngIf="this.authService.isLoggedIn()"><a class="cd-signin cd-pic" routerLink="user-profile"><img class="profilePic" src="{{ this.authService.currentUser.photoURL }}"></a> <span style="color: #FFFF; padding-left: 5px;">{{ this.authService.currentUser.displayName }}</span></li>
+<li *ngIf="this.authService.isLoggedIn()"><a class="cd-signin cd-pic" routerLink="user-profile"><img class="profilePic" src="{{ this.authService.currentUser.photoURL }}"></a><span style="color: #FFFF; padding-left: 5px;">{{ this.authService.currentUser.displayName }}</span></li>
 <li *ngIf="this.authService.isLoggedIn()"><a class="cd-signin" (click)="this.authService.logout()">Log out</a></li>
 <li *ngIf="!this.authService.isLoggedIn()"><a class="cd-signin" (click)="openModal(signin)">Sign In</a></li>
 <li *ngIf="!this.authService.isLoggedIn()"><a class="cd-signin" (click)="openModal(signup)">Sign Up</a></li>
@@ -21,12 +21,12 @@
   </div>
   <div class="modal-body mx-3 justify-content-center">
     <div class="md-form mb-5">
-      <i class="fa fa-envelope prefix grey-text"></i>
+      <i class="prefix grey-text"><img src="assets/icons/envelope-closed.svg" width="30"></i>
       <input type="email" id="defaultForm-email" class="form-control validate">
       <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
     </div>
     <div class="md-form mb-4">
-      <i class="fa fa-lock prefix grey-text"></i>
+      <i class="prefix grey-text"><img src="assets/icons/key.svg" width="30"></i>
       <input type="password" id="defaultForm-pass" class="form-control validate">
       <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
     </div>
@@ -35,15 +35,34 @@
       <button class="btn btn-default btn-modal">Login</button>
   </div>
 
-  <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
+  <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or </p>
 
     <div class="row my-3 d-flex justify-content-center">
-        <!--Facebook-->
-        <!-- <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-facebook text-center"></i></button> -->
-        <!--Twitter-->
-        <!-- <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-twitter"></i></button> -->
-        <!--Google +-->
-        <button type="button" class="btn btn-white btn-rounded z-depth-1a" (click)="this.authService.googleSignIn(); closeFirstModal()"><i class="fa fa-google-plus"></i></button>
+      <!--Facebook-->
+      <!-- <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-facebook text-center"></i></button> -->
+      <!--Twitter-->
+      <!-- <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-twitter"></i></button> -->
+      <!--Google +-->
+      <div style="height:36px;width:170px;" class="abcRioButton abcRioButtonLightBlue" (click)="this.authService.googleSignIn(); closeFirstModal()">
+        <div class="abcRioButtonContentWrapper">
+          <div class="abcRioButtonIcon" style="padding:8px">
+            <div style="width:18px;height:18px;" class="abcRioButtonSvgImageWithFallback abcRioButtonIconImage abcRioButtonIconImage18">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 48 48" class="abcRioButtonSvg">
+                <g>
+                  <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                  <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                  <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                  <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                  <path fill="none" d="M0 0h48v48H0z"></path>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <span style="font-size:13px;line-height:34px;" class="abcRioButtonContents">
+            <span>Sign in with Google</span>
+          </span>
+        </div>
+      </div>
     </div>
 </ng-template>
 
@@ -56,29 +75,27 @@
   </div>
   <div class="modal-body mx-3">
     <div class="md-form mb-5">
-      <i class="fa fa-user prefix grey-text"></i>
+      <i class="prefix grey-text"><img src="assets/icons/person.svg" width="30"></i>
       <input type="text" id="orangeForm-name" class="form-control validate" #newName>
       <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
     </div>
     <div class="md-form mb-5">
-      <i class="fa fa-envelope prefix grey-text"></i>
+      <i class="prefix grey-text"><img src="assets/icons/envelope-closed.svg" width="30"></i>
       <input type="email" id="orangeForm-email" class="form-control validate" #newEmail>
       <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
     </div>
     <div class="md-form mb-5">
-      <i class="fa fa-lock prefix grey-text"></i>
+      <i class="prefix grey-text"><img src="assets/icons/key.svg" width="30"></i>
       <input type="password" id="orangeForm-pass" class="form-control validate" #newPassword>
       <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
     </div>
     <div class="md-form mb-5">
-      <i class="fa fa-lock prefix grey-text"></i>
-      <input type="text" id="orangeForm-pass" class="form-control validate" #newURL>
-      <label data-error="wrong" data-success="right" for="orangeForm-pass">Your URL</label>
+      <i class="prefix grey-text"><img src="assets/icons/link-intact.svg" width="30"></i>
+      <input type="text" id="orangeForm-url" class="form-control validate" #newURL>
+      <label data-error="wrong" data-success="right" for="orangeForm-url">Your URL</label>
     </div>
     <div class="md-form mb-4">
-      <i class="fa fa-lock prefix grey-text"></i>
-      <!-- <input type="text" id="orangeForm-pass" class="form-control validate" #newURL>
-      <label data-error="wrong" data-success="right" for="orangeForm-pass">Your URL</label> -->
+      <i class="prefix grey-text"><img src="assets/icons/code.svg" style="margin-bottom: 1.5rem;" width="30"></i>
       <select class="language custom-select" name="Language" style="margin-left: 3rem; width: 90%;" required #newLanguage>
         <option disabled selected>Language</option>
         <option value="HTML and CSS Intro">HTML/CSS Intro</option>
