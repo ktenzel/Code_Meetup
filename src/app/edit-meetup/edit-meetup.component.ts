@@ -18,4 +18,10 @@ export class EditMeetupComponent implements OnInit {
     this.meetupsService.updateMeetup(meetupToUpdate);
   }
 
+  beginDeletingMeetup(meetupToDelete){
+    if(confirm("Are you sure you want to delete this meetup?")){
+      this.meetupsService.deleteMeetup(meetupToDelete);
+    }
+  }
+
 }
