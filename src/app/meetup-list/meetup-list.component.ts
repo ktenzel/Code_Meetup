@@ -9,18 +9,18 @@ import { UserService } from '../services/user.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { LESSONS } from '../mock-lessons';
+import { LessonService } from '../services/lesson.service';
 
 
 @Component({
   selector: 'app-meetup-list',
   templateUrl: './meetup-list.component.html',
   styleUrls: ['./meetup-list.component.css'],
-  providers: [MeetupsService, UserService]
+  providers: [MeetupsService, UserService, LessonService]
 })
+
 export class MeetupListComponent implements OnInit {
   meetups: FirebaseListObservable<any[]>;
-  currentRoute: string = this.router.url;
-  meetupId: number;
 
   constructor(private router: Router, private route: ActivatedRoute, private meetupsService: MeetupsService, public authService: AuthenticationService) {
     this.authService.user.subscribe(() => {
@@ -30,8 +30,5 @@ export class MeetupListComponent implements OnInit {
 
   ngOnInit() {
     this.meetups = this.meetupsService.getMeetups();
-    this.route.params.forEach((urlParameters) => {
-     this.meetupId = parseInt(urlParameters['id']);
-   });
- }
+  }
 }

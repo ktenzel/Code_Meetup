@@ -1,6 +1,6 @@
  export class Lesson {
    constructor(public skillLevel: string,
-     public language: string, public reviewMaterial: string, public meetUpDayMaterial: string, public instructions: string
+     public language: string, public reviewMaterial: string, public meetUpDayMaterial: string, public instructions: string, public id: number
    ) {}
 
   // getLessonsByLanguage(language) {

@@ -24,7 +24,6 @@
         <select #newSkillLevel>
           <option value="beginner">Beginner</option>
           <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
         </select>
         <button (click)="this.authService.updateUser(newBio.value, newLanguage.value, newSkillLevel.value);">Update</button>
   </div>
