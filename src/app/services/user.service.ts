@@ -11,24 +11,24 @@ export class UserService {
     this.users = db.list('users');
   }
 
-  getCurrentUserUID() {
-    return this.authService.currentUser.uid;
+  getCurrentUser() {
+    return this.authService.currentUser;
   }
 
-  getMeetupByUid(){
-    let currentUserUID = this.getCurrentUserUID();
-
-     this.users.$ref.orderByKey().on("child_added", (snapshot) => {
-      console.log(snapshot.key);
-      if (currentUserUID === snapshot.key) {
-        let createdByName = snapshot.val().name;
-        let createdByEmail = snapshot.val().email;
-        console.log(createdByEmail, createdByName)
-
-
-
-        return createdByName && createdByEmail;
-      }
-    });
-  }
+  // getMeetupByUid(){
+  //   let currentUserUID = this.getCurrentUserUID();
+  //
+  //    this.users.$ref.orderByKey().on("child_added", (snapshot) => {
+  //     console.log(snapshot.key);
+  //     if (currentUserUID === snapshot.key) {
+  //       let createdByName = snapshot.val().name;
+  //       let createdByEmail = snapshot.val().email;
+  //       console.log(createdByEmail, createdByName)
+  //
+  //
+  //
+  //       return createdByName && createdByEmail;
+  //     }
+  //   });
+  // }
 }
