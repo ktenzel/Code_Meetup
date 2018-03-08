@@ -56,7 +56,7 @@ export class AuthenticationService {
 
   updateUser(bio: string, language: string, skillLevel: string) {
     let cUser = firebase.auth().currentUser;
-    
+
     firebase.database().ref('users/' + cUser.uid).update({
       bio: bio,
       language: language,

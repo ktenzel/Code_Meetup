@@ -1,9 +1,59 @@
 .card {
-  background-color: white;
   width: 500px;
-  height: 350px;
   float: left;
   margin: 15px;
+  text-align: center;
+}
+
+
+.meetupLanguage {
+  font-size: 13px;
+  font-weight: bold;
+  color: #2C9676;
+  margin: auto;
+  font-family: sans-serif;
+  border-radius: 25px;
+  background-color: white;
+  border: 2px solid #EDEFF0;
+  /*padding: 7px 14px;*/
+  display: block;
+  font-size: 25px;
+  width: 75%;
+}
+
+.meetupSkillLevel {
+  font-size: 13px;
+  font-weight: bold;
+  margin: auto;
+  font-family: sans-serif;
+  padding: 7px 14px;
+  display: block;
+  font-size: 20px;
+}
+
+.meetupLocation {
+
+  font-weight: bold;
+  margin: auto;
+  font-family: sans-serif;
+  border-radius: 25px;
+  padding: 7px 14px;
+  display: block;
+  font-size: 18px;
+}
+
+.contactInfo{
+
+  font-weight: bold;
+  margin: auto;
+  font-family: sans-serif;
+  background-color: white;
+  padding: 7px 14px;
+  display: block;
+  font-size: 14px;
+  top: 0px;
+  left: 0px;
+
 }
 
 p {
