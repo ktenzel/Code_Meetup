@@ -63,3 +63,12 @@
   left: 0px;
 
 }
+
+p {
+  line-height: 1;
+}
+
+.lessonList:hover {
+  color: #1f6fef;
+  cursor: pointer;
+}

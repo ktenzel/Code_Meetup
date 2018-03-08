@@ -7,6 +7,7 @@
     <p class = "createdOn">Created On: {{ meetup.startedAt | date:"MM/dd @ hh:mm a" }}</p>
     <p class = "meetupLocation">Location: {{ meetup.location }}</p>
     <br>
+    <p class="lessonList" routerLink="/lessons-list"><b><em>Click here to find a lesson based on language and skill level</em></b></p>
     <p class = "contactInfo"> <a href="mailto:{{ meetup.creatorEmail }}?Subject=Meetup">Contact the creator of this meetup </a></p>
 
   <div *ngIf="isLoggedIn">
