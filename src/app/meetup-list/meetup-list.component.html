@@ -6,10 +6,11 @@
     <p>Created On: {{ meetup.startedAt | date:"MM/dd @ hh:mm a" }}</p>
     <p>Location: {{ meetup.location }}</p>
     <p>Contact the creator of this: {{ meetup.creatorContact }}</p>
-  </div>
+
   <div *ngIf="isLoggedIn">
     <hr>
-    <app-edit-meetup></app-edit-meetup>
+    <app-edit-meetup [selectedMeetup]="meetup"></app-edit-meetup>
+  </div>
   </div>
     <!-- <div class="card-body" *ngFor="let user of meetups.users">
       {{ user.name }}
