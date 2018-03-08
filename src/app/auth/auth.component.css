@@ -1,29 +1,81 @@
-.center {
-  margin: auto;
-  display: block;
-}
-
-.btn:hover {
-  background-position: right center;
-  box-shadow: 0 0 10px #000;
-}
-.btn {
-  background-size: 200% auto;
-  box-shadow: 0 0 20px #878787;
-  color: white;
-}
-
-.form-control{
-  width: 95%;
-}
-
-.signInWithGoogle {
-  margin: auto;
-  display: block;
+.cd-pic {
+  padding: 0 0 0 0!important;
 }
 
 .profilePic {
- height: 35px;
- width: 35px;
+ width: 40px;
  border-radius: 20px;
+}
+
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+a {
+  color: #2f889a;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+input, textarea {
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+}
+input::-ms-clear, textarea::-ms-clear {
+  display: none;
+}
+
+.form-control {
+  display: inline-grid;
+  padding: 0 0 15px 0;
+}
+
+.btn-modal {
+  border-radius: 50em;
+  padding: .85rem 2.13rem;
+}
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 5%;
+  background: #292a34;
+  border-top: 1px solid #3b3d4b;
+  color: #FFFF!important;
+}
+@media only screen and (min-width: 768px) {
+  li {
+    display: inline-block;
+    margin-left: 1em;
+  }
+  li:nth-last-child(2) {
+    margin-left: 2em;
+  }
+
+  a {
+    display: inline-block;
+    height: auto;
+    line-height: normal;
+    background: transparent;
+  }
+
+  .cd-signin, .cd-signup {
+    padding: .6em 1em;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50em;
+  }
+  .cd-signup {
+    background: #2f889a;
+    border: none;
+  }
 }

@@ -1,17 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" routerLink=""><img src="assets/codeday_logo.png" style="width:150px; height:50px;"></a>
     </div>
 
     <ul class="nav navbar-nav navbar-right">
-      <li *ngIf="isLoggedIn" class="nav-item"><a class="nav-link" routerLink="new-meetup">Create Meetup</a></li>
+      <li *ngIf="this.authService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="new-meetup">Create Meetup</a></li>
       <li class="nav-item"><a class="nav-link" routerLink="meetup-list">Meetup List</a></li>
       <app-auth></app-auth>
     </ul>
   </div>
-</nav>
+</nav> -->
 
+<header role="banner">
+  <div id="cd-logo">
+    <a routerLink=""><img src="assets/codeday_logo-w.svg" width="165" height="50"></a>
+  </div>
+
+  <nav class="main-nav">
+    <ul>
+      <li *ngIf="this.authService.isLoggedIn()"><a class="cd-signin" routerLink="new-meetup">Create Meetup</a></li>
+      <li><a class="cd-signin" routerLink="meetup-list">Meetup List</a></li>
+      <app-auth></app-auth>
+      <!-- inser more links here -->
+      <!-- <li><a class="cd-signin" href="#0">Sign in</a></li>
+      <li><a class="cd-signup" href="#0">Sign up</a></li> -->
+    </ul>
+  </nav>
+</header>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
