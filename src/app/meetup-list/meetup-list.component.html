@@ -2,12 +2,13 @@
 <div class="card" *ngFor="let meetup of meetups | async">
 
   <div class="card-body">
-    <p>Language Focus: {{ meetup.language }}</p>
-    <p>Skill Level: {{ meetup.skillLevel }}</p>
-    <p>Created: {{ meetup.startedAt | date:"MM/dd @ hh:mm a" }}</p>
-    <p>Suggested Location: {{ meetup.location }}</p>
-    <p>Contact the creator of this:</p>
+    <p class = "meetupLanguage">{{ meetup.language }}</p>
+    <p class = "meetupSkillLevel">Skill Level: {{ meetup.skillLevel }}</p>
+    <p class = "createdOn">Created On: {{ meetup.startedAt | date:"MM/dd @ hh:mm a" }}</p>
+    <p class = "meetupLocation">Location: {{ meetup.location }}</p>
+    <br>
     <p class="lessonList" routerLink="/lessons-list"><b><em>Click here to find a lesson based on language and skill level</em></b></p>
+    <p class = "contactInfo"> <a href="mailto:{{ meetup.creatorEmail }}?Subject=Meetup">Contact the creator of this meetup </a></p>
 
   <div *ngIf="isLoggedIn">
     <hr>
