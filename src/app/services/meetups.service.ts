@@ -32,4 +32,8 @@ export class MeetupsService {
   meetupEntryInFirebase.update({language: localUpdatedMeetup.language,
                               skillLevel: localUpdatedMeetup.skillLevel});
                             }
+  deleteMeetup(localMeetupToDelete){
+    var meetupEntryInFirebase = this.getMeetupById(localMeetupToDelete.$key);
+    meetupEntryInFirebase.remove();
+  }
 }
