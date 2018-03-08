@@ -7,7 +7,9 @@ export class Meetup {
     public language: string,
     public skillLevel: string,
     public location: string,
-    public createdBy: string
+    public creatorUID: string,
+    public creatorName: string,
+    public creatorEmail: string
     // Associate user that created the meetup
     // Users can then 'join' a meetup
   ) { }

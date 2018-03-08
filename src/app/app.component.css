@@ -25,7 +25,8 @@ a {
   color: #2f889a;
   text-decoration: none;
 }
-/*
+
+
 img {
   max-width: 100%;
 }
@@ -37,7 +38,7 @@ input, textarea {
 }
 input::-ms-clear, textarea::-ms-clear {
   display: none;
-} */
+}
 
 /* --------------------------------
 
