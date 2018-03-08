@@ -23,20 +23,20 @@
               <br>
               <input #newPassword class="form-control" type="password" required placeholder="Password">
               <br>
-              <input #newLink class="form-control" type="text" name="link" placeholder="Github link or Website" required>
+              <input #newURL class="form-control" type="text" name="link" placeholder="Github link or Website" required>
               <br>
               <select #newLanguage class="language custom-select" name="Language" required>
-                <option >Language</option>
-                <option value="HTMLCSSIntro">HTML/CSS Intro</option>
+                <option disabled selected>Language</option>
+                <option value="HTML and CSS Intro">HTML/CSS Intro</option>
                 <option value="CSS">CSS</option>
                 <option value="JavaScript">JavaScript</option>
-                <option value="JavascriptAndJQuery">Javascript and JQuery</option>
-                <option value="JavaScriptAngular">JavaScript/Angular</option>
+                <option value="Javascript and JQuery">Javascript and JQuery</option>
+                <option value="JavaScript/Angular">JavaScript/Angular</option>
                 <option value="Java">Java</option>
               </select>
 
-              <button *ngIf="modalRef" type="button" class="btn btn-danger center" (click)="this.authService.emailSignUp(newEmail.value, newPassword.value)">Submit</button>
-              <!-- <button *ngIf="modalRef" type="button" class="btn btn-danger center" (click)="submitNewUser(newName.value, newEmail.value, newPassword.value, newLink.value, newLanguage.value)">Submit</button> -->
+              <!-- <button *ngIf="modalRef" type="button" class="btn btn-danger center" (click)="this.authService.emailSignUp(newEmail.value, newPassword.value)">Submit</button> -->
+              <button *ngIf="modalRef" type="button" class="btn btn-danger center" (click)="this.authService.emailSignUp(newName.value, newEmail.value, newPassword.value, newURL.value, newLanguage.value); closeFirstModal()">Submit</button>
             </form>
           </div>
 
