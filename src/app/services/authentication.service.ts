@@ -25,12 +25,25 @@ export class AuthenticationService {
   emailSignUp(name: string, email: string, password: string, url: string, language: string) {
     const credential = firebase.auth.EmailAuthProvider.credential(email, password);
     this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(() => {
-      firebase.database().ref('users/' + firebase.auth().currentUser.uid).update({
+      let cUser = firebase.auth().currentUser;
+      firebase.database().ref('users/' + cUser.uid).update({
         language: language,
         name: name,
         url: url
+      }).then(() => {
+        cUser.updateProfile({
+          displayName: name,
+          photoURL: 'https://lh5.googleusercontent.com/-MJinLOQveVw/AAAAAAAAAAI/AAAAAAAAAAc/e_0_T9fV5Gw/photo.jpg'
+        }).catch(updateProfileError => console.log(updateProfileError));
       }).catch(updatError => console.warn(`Error Updating user: ${updatError}`));
     }).catch(error => console.warn(error));
+  }
+
+  emailSignIn(email: string, password: string) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .catch(signInError => {
+        console.warn(`Something went wrong: ${signInError}`);
+      });
   }
 
   googleSignIn() {

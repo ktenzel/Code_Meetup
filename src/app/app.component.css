@@ -3,6 +3,8 @@
 Primary style
 
 -------------------------------- */
+
+
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -18,14 +20,17 @@ body {
   font-size: 100%;
   font-family: "PT Sans", sans-serif;
   color: #505260;
-  background-color: #fff;
+  background-color: #EDEFF0;
+  overflow: auto;
+  border-bottom: 2px solid #DFE1E2;
 }
 
 a {
   color: #2f889a;
   text-decoration: none;
 }
-/*
+
+
 img {
   max-width: 100%;
 }
@@ -37,7 +42,7 @@ input, textarea {
 }
 input::-ms-clear, textarea::-ms-clear {
   display: none;
-} */
+}
 
 /* --------------------------------
 
