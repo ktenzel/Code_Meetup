@@ -26,16 +26,16 @@ export class AuthenticationService {
     const credential = firebase.auth.EmailAuthProvider.credential(email, password);
     this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(() => {
       let cUser = firebase.auth().currentUser;
-      firebase.database().ref('users/' + cUser.uid).update({
-        language: language,
-        name: name,
-        url: url
+      cUser.updateProfile({
+        displayName: name,
+        photoURL: 'https://lh5.googleusercontent.com/-MJinLOQveVw/AAAAAAAAAAI/AAAAAAAAAAc/e_0_T9fV5Gw/photo.jpg'
       }).then(() => {
-        cUser.updateProfile({
-          displayName: name,
-          photoURL: 'https://lh5.googleusercontent.com/-MJinLOQveVw/AAAAAAAAAAI/AAAAAAAAAAc/e_0_T9fV5Gw/photo.jpg'
-        }).catch(updateProfileError => console.log(updateProfileError));
-      }).catch(updatError => console.warn(`Error Updating user: ${updatError}`));
+        firebase.database().ref('users/' + cUser.uid).update({
+          language: language,
+          name: name,
+          url: url
+        }).catch(updatError => console.warn(`Error Updating user: ${updatError}`));
+      }).catch(updateProfileError => console.log(updateProfileError));
     }).catch(error => console.warn(error));
   }
 
