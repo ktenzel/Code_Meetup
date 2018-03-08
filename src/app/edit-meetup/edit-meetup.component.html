@@ -1,0 +1,20 @@
+<h4>Edit Meetup</h4>
+
+<label>Edit Meetup Language:</label>
+<select [(ngModel)]="selectedMeetup.language">
+  <option value="HTML/CSS Intro">HTML/CSS Intro</option>
+  <option value="CSS">CSS</option>
+  <option value="JavaScript">JavaScript</option>
+  <option value="Javascript and JQuery">Javascript and JQuery</option>
+  <option value="JavaScript/Angular">JavaScript/Angular</option>
+  <option value="Java">Java</option>
+</select>
+<br>
+<label>Edit Skill Level:</label>
+  <select [(ngModel)]="selectedMeetup.skillLevel">
+    <option value="beginner">Beginner</option>
+    <option value="intermediate">Intermediate</option>
+    <option value="advanced">Advanced</option>
+  </select>
+<button (click)="beginUpdatingMeetup(selectedMeetup)">Update</button>
+<button (click)="beginDeletingMeetup(selectedMeetup)">Delete</button>
