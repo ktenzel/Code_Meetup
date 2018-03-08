@@ -15,6 +15,8 @@ export class AuthComponent {
 
   constructor(public authService: AuthenticationService, private modalService: BsModalService) { }
 
+  
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
