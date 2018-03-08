@@ -7,6 +7,15 @@
  border-radius: 20px;
 }
 
+body {
+  font-size: 100%;
+  font-family: "PT Sans", sans-serif;
+  color: #505260;
+  background-color: black;
+  overflow: auto;
+  border-bottom: 2px solid #DFE1E2;
+}
+
 .abcRioButton {
   -webkit-border-radius: 1px;
     border-radius: 1px;
