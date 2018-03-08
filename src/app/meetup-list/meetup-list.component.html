@@ -7,7 +7,7 @@
     <p>Created On: {{ meetup.startedAt | date:"MM/dd @ hh:mm a" }}</p>
     <p>Location: {{ meetup.location }}</p>
     <p>Contact the creator of this:</p>
-    <p routerLink="/lessons-list"><b>Click for Lesson Details of this meetup</b></p>
+    <p class="lessonList" routerLink="/lessons-list"><b><em>Click here to Find a Lesson based on language and skill level</em></b></p>
 
   <div *ngIf="isLoggedIn">
     <hr>
