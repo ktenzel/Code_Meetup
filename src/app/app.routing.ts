@@ -5,6 +5,8 @@ import { MeetupListComponent } from './meetup-list/meetup-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NewMeetupComponent } from './new-meetup/new-meetup.component';
 import { AuthComponent } from './auth/auth.component';
+import { LessonsListComponent} from './lessons-list/lessons-list.component';
+
 const appRoutes: Routes = [
   {
   path: '',
@@ -25,6 +27,10 @@ const appRoutes: Routes = [
   {
     path: 'auth',
     component: AuthComponent
+  },
+  {
+    path: 'lessons-list',
+    component: LessonsListComponent
   }
 
 ];

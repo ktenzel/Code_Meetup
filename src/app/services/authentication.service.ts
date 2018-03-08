@@ -16,11 +16,21 @@ export class AuthenticationService {
     this.user.subscribe(user =>  {
       if(user) {
         this.currentUser = user;
-        // console.log(this.currentUser)
       } else {
         this.currentUser = null;
       }
     });
+  }
+
+  emailSignUp(name: string, email: string, password: string, url: string, language: string) {
+    const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(() => {
+      firebase.database().ref('users/' + firebase.auth().currentUser.uid).update({
+        language: language,
+        name: name,
+        url: url
+      }).catch(updatError => console.warn(`Error Updating user: ${updatError}`));
+    }).catch(error => console.warn(error));
   }
 
   googleSignIn() {
@@ -35,7 +45,8 @@ export class AuthenticationService {
 
   logout() {
     this.afAuth.auth.signOut()
-      .then((response) => this.router.navigate(['/']));
+      .then((response) => this.router.navigate(['/']))
+      .catch(logoutError => console.warn(`Logout Error ${logoutError}`));
   }
 
 }

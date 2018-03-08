@@ -9,14 +9,16 @@ import { UserService } from '../services/user.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { LESSONS } from '../mock-lessons';
+import { LessonService } from '../services/lesson.service';
 
 
 @Component({
   selector: 'app-meetup-list',
   templateUrl: './meetup-list.component.html',
   styleUrls: ['./meetup-list.component.css'],
-  providers: [MeetupsService, UserService]
+  providers: [MeetupsService, UserService, LessonService]
 })
+
 export class MeetupListComponent implements OnInit {
   meetups: FirebaseListObservable<any[]>;
   currentRoute: string = this.router.url;
@@ -25,7 +27,14 @@ export class MeetupListComponent implements OnInit {
   private userName: String;
   meetupId: number;
 
-  constructor(private meetupsService: MeetupsService, private router: Router, public authService: AuthenticationService, private route: ActivatedRoute) {
+
+  constructor(
+    private meetupsService: MeetupsService,
+    private router: Router,
+    public authService: AuthenticationService,
+    private route: ActivatedRoute,
+    private lessonService: LessonService
+  ) {
     this.authService.user.subscribe(user => {
           if (user == null) {
             this.isLoggedIn = false;
@@ -35,9 +44,7 @@ export class MeetupListComponent implements OnInit {
             this.userName = user.displayName;
             this.router.navigate([]);
           }
-        });
-
-
+    });
    }
 
   ngOnInit() {
@@ -46,4 +53,6 @@ export class MeetupListComponent implements OnInit {
      this.meetupId = parseInt(urlParameters['id']);
    });
  }
+
+
 }

@@ -18,15 +18,8 @@ export class AppComponent {
 
   constructor(public authService: AuthenticationService, private router: Router) {
     this.authService.user.subscribe(user => {
-          if (user == null) {
-            this.isLoggedIn = false;
-            // this.router.navigate(['public']);
-          } else {
-            this.isLoggedIn = true;
-            this.userName = user.displayName;
-            this.router.navigate([]);
-          }
-        });
+      // this.authService.isLoggedIn() ? this.router.navigate(['user-profile']) : this.router.navigate(['/']);
+    });
    }
 
 }
