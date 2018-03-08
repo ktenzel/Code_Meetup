@@ -14,4 +14,21 @@ export class UserService {
   getCurrentUserUID() {
     return this.authService.currentUser.uid;
   }
+
+  getMeetupByUid(){
+    let currentUserUID = this.getCurrentUserUID();
+
+     this.users.$ref.orderByKey().on("child_added", (snapshot) => {
+      console.log(snapshot.key);
+      if (currentUserUID === snapshot.key) {
+        let createdByName = snapshot.val().name;
+        let createdByEmail = snapshot.val().email;
+        console.log(createdByEmail, createdByName)
+
+
+
+        return createdByName && createdByEmail;
+      }
+    });
+  }
 }
