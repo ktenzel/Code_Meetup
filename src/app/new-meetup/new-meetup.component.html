@@ -20,7 +20,6 @@
           <select #skillLevel>
             <option value="beginner">Beginner</option>
             <option value="intermediate">Intermediate</option>
-            <option value="advanced">Advanced</option>
           </select>
       </div>
     <br>
@@ -33,3 +32,4 @@
   <div>
     <button (click)="submitForm(newLanguage.value, skillLevel.value, newLocation.value); newLanguage.value=''; skillLevel.value=''; newLocation.value='Epicodus'; this.userService.getMeetupByUid()">Add</button>
   </div>
+</div>
