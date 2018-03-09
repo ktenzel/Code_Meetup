@@ -29,29 +29,37 @@ export class AuthenticationService {
       cUser.updateProfile({
         displayName: name,
         photoURL: 'https://lh5.googleusercontent.com/-MJinLOQveVw/AAAAAAAAAAI/AAAAAAAAAAc/e_0_T9fV5Gw/photo.jpg'
-      }).then(() => {
-        firebase.database().ref('users/' + cUser.uid).update({
+      }).then(success => {
+        let userPropsUpdate = {
           bio: '',
           language: language,
           name: name,
           skillLevel: 'beginner',
           url: url
-        }).catch(updatError => console.warn(`Error Updating user: ${updatError}`));
-      }).catch(updateProfileError => console.log(updateProfileError));
-    }).catch(error => console.warn(error));
+        };
+
+        let update = {};
+
+        update['/users/' + cUser.uid] = userPropsUpdate;
+
+        return firebase.database().ref().update(update)
+          .then(updateSuccess => console.log(`Update Success: ${update}`))
+          .catch(updateError => console.log(`updateError: ${updateError}`));
+      }).catch(updateProfileError => console.log(`Error upating profile: ${updateProfileError}`));
+    }).catch(createError => console.warn(`Error creating account: ${createError}`));
   }
 
   emailSignIn(email: string, password: string) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .catch(signInError => {
-        console.warn(`Something went wrong: ${signInError}`);
+        console.warn(`Sign in error: ${signInError}`);
       });
   }
 
   googleSignIn() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-      .then((response) => this.router.navigate(['user-profile']))
-      .catch((error) => console.log(error));
+      .then(success => this.router.navigate(['user-profile']))
+      .catch(error => console.log(error));
   }
 
   updateUser(bio: string, language: string, skillLevel: string) {
