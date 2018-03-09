@@ -24,28 +24,27 @@ export class AuthenticationService {
 
   emailSignUp(name: string, email: string, password: string, url: string, language: string) {
     const credential = firebase.auth.EmailAuthProvider.credential(email, password);
-    this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(() => {
+
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(() => {
+      let cUser = firebase.auth().currentUser;
+      let update = {};
+      let userPropsUpdate = {
+        bio: '',
+        language: language,
+        name: name,
+        skillLevel: 'beginner',
+        url: url
+      };
+      update['/users/' + cUser.uid] = userPropsUpdate;
+      return firebase.database().ref().update(update);
+    }).then(updateSuccess => {
       let cUser = firebase.auth().currentUser;
       cUser.updateProfile({
         displayName: name,
         photoURL: 'https://lh5.googleusercontent.com/-MJinLOQveVw/AAAAAAAAAAI/AAAAAAAAAAc/e_0_T9fV5Gw/photo.jpg'
-      }).then(success => {
-        let userPropsUpdate = {
-          bio: '',
-          language: language,
-          name: name,
-          skillLevel: 'beginner',
-          url: url
-        };
-
-        let update = {};
-
-        update['/users/' + cUser.uid] = userPropsUpdate;
-
-        return firebase.database().ref().update(update)
-          .then(updateSuccess => console.log(`Update Success: ${update}`))
-          .catch(updateError => console.log(`updateError: ${updateError}`));
-      }).catch(updateProfileError => console.log(`Error upating profile: ${updateProfileError}`));
+      }).then(profileUpdateSuccess => {
+        console.log(`updateProfile Success: ${profileUpdateSuccess}`);
+      }).catch(profileUpdateError => console.log(`profileUpdate Error: ${profileUpdateError}`));
     }).catch(createError => console.warn(`Error creating account: ${createError}`));
   }
 
