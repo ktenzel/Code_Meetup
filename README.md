@@ -35,7 +35,29 @@ Install all npm packages:
 $ npm install
 ```
 
-Now, just run this angular cli task:
+<!-- Edit api-keys file -->
+
+Now we need to setup our Firebase function, start off by installing the firebase-tools npm package.
+> Install this globally or locally, either or. (If you're going to be working with Firebase a lot and on multiple projects, I suggest you install it globally or use something like env)
+
+```sh
+$ npm install -g firebase-tools
+```
+
+Next, we will need to authenticate the firebase tool:
+> Sign in with the same account you used to create your Firebase database.
+
+```sh
+$ firebase login
+```
+
+Last set of npm packages:
+
+```sh
+$ cd functions && npm install
+```
+
+You're ready to roll. Just run this angular cli task:
 
 ```sh
 $ ng serve
