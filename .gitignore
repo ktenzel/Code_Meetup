@@ -1,6 +1,5 @@
 # Directories #
 node_modules/
-src/app/api-keys.ts
 
 # System Files #
 .DS_Store
